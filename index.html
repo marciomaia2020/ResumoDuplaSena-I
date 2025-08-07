@@ -388,14 +388,14 @@
                     
                     <!-- Legenda visual -->
                     <div class="mt-4 p-3 bg-blue-50 dark:bg-blue-900 rounded-lg">
-                        <h4 class="text-sm font-bold text-blue-800 dark:text-blue-200 mb-2">🔍 Estilo Oficial Caixa:</h4>
+                        <h4 class="text-sm font-bold text-blue-800 dark:text-blue-200 mb-2">🔍 Dupla Sena - 6 números por sorteio:</h4>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                             <div class="flex items-center gap-2">
                                 <div class="w-6 h-6 rounded-full" style="background: #ba184a; border: 2px solid #9e1440;"></div>
                                 <span class="text-blue-700 dark:text-blue-300">🎯 1º e 2º Sorteio - Mesma cor oficial (vermelho/rosa)</span>
                             </div>
                             <div class="flex items-center gap-2">
-                                <span class="text-blue-700 dark:text-blue-300 text-xs">✨ Separação por títulos e layout como no site da Caixa</span>
+                                <span class="text-blue-700 dark:text-blue-300 text-xs">✨ Cada sorteio tem exatamente 6 dezenas únicas</span>
                             </div>
                         </div>
                     </div>
@@ -796,13 +796,13 @@
             return null;
         }
 
-        // Função para criar célula de número com destaque par/ímpar e sorteio
+        // 🎯 FUNÇÃO CORRIGIDA PARA CRIAR CÉLULA DE NÚMERO
         function criarCelulaNumero(numero, sorteio) {
             const cellNumero = document.createElement('td');
             cellNumero.className = 'px-1 py-3 whitespace-nowrap text-center';
             
             const divNumero = document.createElement('div');
-            divNumero.textContent = numero;
+            divNumero.textContent = numero.toString().padStart(2, '0'); // Sempre com 2 dígitos (01, 02, etc.)
             divNumero.dataset.numero = numero;
             
             // Adicionar classe do sorteio
@@ -851,7 +851,7 @@
             };
         }
 
-        // Função para exibir todos os resultados na tabela
+        // 🎯 FUNÇÃO CORRIGIDA PARA EXIBIR RESULTADOS COM EXATAMENTE 6 NÚMEROS POR SORTEIO
         function exibirTodosResultados() {
             tabelaBody.innerHTML = '';
 
@@ -886,19 +886,47 @@
                 cellData.textContent = dataFormatada;
                 row.appendChild(cellData);
 
-                // 1º Sorteio (6 números)
-                if (data.dezenasSorteadasOrdemSorteio) {
+                // 🎯 1º SORTEIO - GARANTIR EXATAMENTE 6 NÚMEROS
+                if (data.dezenasSorteadasOrdemSorteio && Array.isArray(data.dezenasSorteadasOrdemSorteio)) {
                     let primeiraSena = [...data.dezenasSorteadasOrdemSorteio];
+                    
+                    // 🔥 GARANTIR QUE SÃO EXATAMENTE 6 NÚMEROS
+                    if (primeiraSena.length > 6) {
+                        console.warn(`Concurso ${data.numero}: 1º sorteio tem ${primeiraSena.length} números, limitando a 6`);
+                        primeiraSena = primeiraSena.slice(0, 6);
+                    }
+                    
                     if (ordenarCrescente.checked) {
                         primeiraSena.sort((a, b) => parseInt(a) - parseInt(b));
                     }
                     
-                    primeiraSena.forEach((numero, index) => {
-                        const cellNumero = criarCelulaNumero(numero, 1);
-                        cellNumero.dataset.sorteio = '1';
-                        cellNumero.dataset.posicao = index + 1;
-                        row.appendChild(cellNumero);
-                    });
+                    // Sempre criar exatamente 6 células para o 1º sorteio
+                    for (let i = 0; i < 6; i++) {
+                        if (i < primeiraSena.length && primeiraSena[i]) {
+                            const cellNumero = criarCelulaNumero(primeiraSena[i], 1);
+                            cellNumero.dataset.sorteio = '1';
+                            cellNumero.dataset.posicao = i + 1;
+                            row.appendChild(cellNumero);
+                        } else {
+                            // Criar célula vazia se não tiver número suficiente
+                            const cellVazia = document.createElement('td');
+                            cellVazia.className = 'px-1 py-3 whitespace-nowrap text-center';
+                            cellVazia.dataset.sorteio = '1';
+                            cellVazia.dataset.posicao = i + 1;
+                            cellVazia.innerHTML = '<div class="w-10 h-10 border border-gray-300 rounded-full bg-gray-50"></div>';
+                            row.appendChild(cellVazia);
+                        }
+                    }
+                } else {
+                    // Se não tiver dados, criar 6 células vazias
+                    for (let i = 0; i < 6; i++) {
+                        const cellVazia = document.createElement('td');
+                        cellVazia.className = 'px-1 py-3 whitespace-nowrap text-center';
+                        cellVazia.dataset.sorteio = '1';
+                        cellVazia.dataset.posicao = i + 1;
+                        cellVazia.innerHTML = '<div class="w-10 h-10 border border-gray-300 rounded-full bg-gray-50"></div>';
+                        row.appendChild(cellVazia);
+                    }
                 }
 
                 // Separador visual
@@ -906,28 +934,60 @@
                 cellSeparador.className = 'px-0 py-3 w-1 separador-sorteios';
                 row.appendChild(cellSeparador);
 
-                // 2º Sorteio (6 números)
-                if (data.listaDezenasSegundoSorteio) {
+                // 🎯 2º SORTEIO - GARANTIR EXATAMENTE 6 NÚMEROS
+                if (data.listaDezenasSegundoSorteio && Array.isArray(data.listaDezenasSegundoSorteio)) {
                     let segundaSena = [...data.listaDezenasSegundoSorteio];
+                    
+                    // 🔥 GARANTIR QUE SÃO EXATAMENTE 6 NÚMEROS
+                    if (segundaSena.length > 6) {
+                        console.warn(`Concurso ${data.numero}: 2º sorteio tem ${segundaSena.length} números, limitando a 6`);
+                        segundaSena = segundaSena.slice(0, 6);
+                    }
+                    
                     if (ordenarCrescente.checked) {
                         segundaSena.sort((a, b) => parseInt(a) - parseInt(b));
                     }
                     
-                    segundaSena.forEach((numero, index) => {
-                        const cellNumero = criarCelulaNumero(numero, 2);
-                        cellNumero.dataset.sorteio = '2';
-                        cellNumero.dataset.posicao = index + 1;
-                        row.appendChild(cellNumero);
-                    });
+                    // Sempre criar exatamente 6 células para o 2º sorteio
+                    for (let i = 0; i < 6; i++) {
+                        if (i < segundaSena.length && segundaSena[i]) {
+                            const cellNumero = criarCelulaNumero(segundaSena[i], 2);
+                            cellNumero.dataset.sorteio = '2';
+                            cellNumero.dataset.posicao = i + 1;
+                            row.appendChild(cellNumero);
+                        } else {
+                            // Criar célula vazia se não tiver número suficiente
+                            const cellVazia = document.createElement('td');
+                            cellVazia.className = 'px-1 py-3 whitespace-nowrap text-center';
+                            cellVazia.dataset.sorteio = '2';
+                            cellVazia.dataset.posicao = i + 1;
+                            cellVazia.innerHTML = '<div class="w-10 h-10 border border-gray-300 rounded-full bg-gray-50"></div>';
+                            row.appendChild(cellVazia);
+                        }
+                    }
+                } else {
+                    // Se não tiver dados, criar 6 células vazias
+                    for (let i = 0; i < 6; i++) {
+                        const cellVazia = document.createElement('td');
+                        cellVazia.className = 'px-1 py-3 whitespace-nowrap text-center';
+                        cellVazia.dataset.sorteio = '2';
+                        cellVazia.dataset.posicao = i + 1;
+                        cellVazia.innerHTML = '<div class="w-10 h-10 border border-gray-300 rounded-full bg-gray-50"></div>';
+                        row.appendChild(cellVazia);
+                    }
                 }
 
                 // Estatísticas Par/Ímpar (total dos dois sorteios)
                 const cellEstatisticas = document.createElement('td');
                 cellEstatisticas.className = 'px-3 py-3 whitespace-nowrap text-center';
                 
+                const primeiros = data.dezenasSorteadasOrdemSorteio || [];
+                const segundos = data.listaDezenasSegundoSorteio || [];
+                
+                // 🔥 GARANTIR MÁXIMO 6 NÚMEROS DE CADA SORTEIO PARA ESTATÍSTICAS
                 const todosNumeros = [
-                    ...(data.dezenasSorteadasOrdemSorteio || []),
-                    ...(data.listaDezenasSegundoSorteio || [])
+                    ...primeiros.slice(0, 6),
+                    ...segundos.slice(0, 6)
                 ];
                 
                 const stats = calcularEstatisticasParImpar(todosNumeros);
@@ -1087,10 +1147,9 @@
             const padroesCombinacoes = {};
 
             todosResultados.forEach(resultado => {
-                const todosNumeros = [
-                    ...(resultado.dezenasSorteadasOrdemSorteio || []),
-                    ...(resultado.listaDezenasSegundoSorteio || [])
-                ];
+                const primeiros = (resultado.dezenasSorteadasOrdemSorteio || []).slice(0, 6);
+                const segundos = (resultado.listaDezenasSegundoSorteio || []).slice(0, 6);
+                const todosNumeros = [...primeiros, ...segundos];
                 
                 const stats = calcularEstatisticasParImpar(todosNumeros);
                 totalPares += stats.pares;
@@ -1172,12 +1231,12 @@
             
             todosResultados.forEach(resultado => {
                 if (resultado.dezenasSorteadasOrdemSorteio) {
-                    const s1 = calcularEstatisticasParImpar(resultado.dezenasSorteadasOrdemSorteio);
+                    const s1 = calcularEstatisticasParImpar(resultado.dezenasSorteadasOrdemSorteio.slice(0, 6));
                     stats1.pares += s1.pares;
                     stats1.impares += s1.impares;
                 }
                 if (resultado.listaDezenasSegundoSorteio) {
-                    const s2 = calcularEstatisticasParImpar(resultado.listaDezenasSegundoSorteio);
+                    const s2 = calcularEstatisticasParImpar(resultado.listaDezenasSegundoSorteio.slice(0, 6));
                     stats2.pares += s2.pares;
                     stats2.impares += s2.impares;
                 }
@@ -1246,7 +1305,7 @@
                 insights += `<p><strong>📊 Padrão mais comum:</strong> ${padraoMaisComum[0]} apareceu em ${padraoMaisComum[1]} concursos (${((padraoMaisComum[1]/totalConcursos)*100).toFixed(1)}%).</p>`;
             }
 
-            insights += `<p><strong>🎯 Especial Dupla Sena:</strong> Com dois sorteios independentes de 6 números (1-50), oferece dupla chance de premiação.</p>`;
+            insights += `<p><strong>🎯 Dupla Sena:</strong> Cada sorteio tem exatamente 6 números únicos (1-50), oferecendo dupla chance de premiação.</p>`;
 
             padroesDiv.innerHTML = padroesMaisComuns + insights;
 
@@ -1271,7 +1330,7 @@
             const numeros1 = new Set();
             ultimosConcursos.forEach(concurso => {
                 if (concurso.dezenasSorteadasOrdemSorteio) {
-                    concurso.dezenasSorteadasOrdemSorteio.forEach(num => {
+                    concurso.dezenasSorteadasOrdemSorteio.slice(0, 6).forEach(num => {
                         numeros1.add(parseInt(num));
                     });
                 }
@@ -1281,7 +1340,7 @@
             const numeros2 = new Set();
             ultimosConcursos.forEach(concurso => {
                 if (concurso.listaDezenasSegundoSorteio) {
-                    concurso.listaDezenasSegundoSorteio.forEach(num => {
+                    concurso.listaDezenasSegundoSorteio.slice(0, 6).forEach(num => {
                         numeros2.add(parseInt(num));
                     });
                 }
