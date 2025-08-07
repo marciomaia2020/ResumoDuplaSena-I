@@ -89,19 +89,70 @@
             color: #fef2f5;
         }
         
+        /* 🎯 ESTILO OFICIAL CAIXA - MESMA COR PARA AMBOS SORTEIOS */
+        .sorteio-1 .numero-par,
+        .sorteio-2 .numero-par {
+            background: #ba184a;
+            color: white;
+            border-radius: 50%;
+            border: 3px solid #9e1440;
+            box-shadow: 0 4px 12px rgba(186, 24, 74, 0.3);
+            width: 40px;
+            height: 40px;
+            font-weight: 900;
+        }
+        
+        .sorteio-1 .numero-impar,
+        .sorteio-2 .numero-impar {
+            background: #ba184a;
+            color: white;
+            border-radius: 50%;
+            border: 3px solid #9e1440;
+            box-shadow: 0 4px 12px rgba(186, 24, 74, 0.3);
+            width: 40px;
+            height: 40px;
+            font-weight: 900;
+        }
+        
+        /* Modo escuro - manter a mesma cor oficial */
+        .dark .sorteio-1 .numero-par,
+        .dark .sorteio-2 .numero-par,
+        .dark .sorteio-1 .numero-impar,
+        .dark .sorteio-2 .numero-impar {
+            background: #ba184a;
+            color: white;
+            border-color: #d41e5b;
+        }
+        
         .filtro-ativo {
             background-color: #ba184a;
             color: white;
         }
         
-        .sorteio-badge {
+        .sorteio-badge-1 {
             background: linear-gradient(45deg, #ba184a, #d41e5b);
             color: white;
             font-weight: bold;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .sorteio-badge-2 {
+            background: linear-gradient(45deg, #7c3aed, #a855f7);
+            color: white;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
         
         .primeiro-sorteio {
@@ -110,8 +161,15 @@
         }
         
         .segundo-sorteio {
-            border-left: 4px solid #d41e5b;
-            background: linear-gradient(135deg, #fde6eb, #fcd9e1);
+            border-left: 4px solid #7c3aed;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+        }
+        
+        /* Separador visual entre sorteios */
+        .separador-sorteios {
+            background: linear-gradient(to bottom, #ba184a, #7c3aed);
+            width: 4px;
+            min-height: 40px;
         }
     </style>
 </head>
@@ -233,8 +291,8 @@
         <!-- Tabela de Resultados -->
         <div id="resultados" class="hidden">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                <div class="text-white p-4" style="background: linear-gradient(to right, #ba184a, #d41e5b);">
-                    <h2 class="text-xl font-bold text-center">DUPLA SENA</h2>
+                <div class="text-white p-4" style="background: linear-gradient(to right, #ba184a, #7c3aed);">
+                    <h2 class="text-xl font-bold text-center">🎯 DUPLA SENA 🎲</h2>
                 </div>
                 
                 <div class="overflow-x-auto">
@@ -248,12 +306,19 @@
                                     Data Sorteio
                                 </th>
                                 <!-- 6 colunas para o 1º sorteio -->
-                                <th colspan="6" class="px-2 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                                    <span class="sorteio-badge">1º Sorteio</span>
+                                <th colspan="6" class="px-2 py-3 text-center text-xs font-medium text-white uppercase tracking-wider" style="background: linear-gradient(45deg, #ba184a, #d41e5b);">
+                                    <span class="sorteio-badge-1">
+                                        🎯 1º SORTEIO 🎯
+                                    </span>
+                                </th>
+                                <!-- Separador visual -->
+                                <th class="px-0 py-3 w-1" style="background: linear-gradient(to bottom, #ba184a, #7c3aed);">
                                 </th>
                                 <!-- 6 colunas para o 2º sorteio -->
-                                <th colspan="6" class="px-2 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                                    <span class="sorteio-badge">2º Sorteio</span>
+                                <th colspan="6" class="px-2 py-3 text-center text-xs font-medium text-white uppercase tracking-wider" style="background: linear-gradient(45deg, #7c3aed, #a855f7);">
+                                    <span class="sorteio-badge-2">
+                                        🎲 2º SORTEIO 🎲
+                                    </span>
                                 </th>
                                 <th class="px-3 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                                     P/I
@@ -263,41 +328,43 @@
                                 <th></th>
                                 <th></th>
                                 <!-- Filtros para 1º sorteio -->
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
                                     <input type="text" id="filtro1_1" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
                                     <input type="text" id="filtro1_2" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
                                     <input type="text" id="filtro1_3" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
                                     <input type="text" id="filtro1_4" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
                                     <input type="text" id="filtro1_5" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
                                     <input type="text" id="filtro1_6" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
+                                <!-- Separador -->
+                                <th class="px-0 py-2 w-1 separador-sorteios"></th>
                                 <!-- Filtros para 2º sorteio -->
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
                                     <input type="text" id="filtro2_1" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
                                     <input type="text" id="filtro2_2" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
                                     <input type="text" id="filtro2_3" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
                                     <input type="text" id="filtro2_4" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
                                     <input type="text" id="filtro2_5" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
-                                <th class="px-1 py-2 text-center">
+                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
                                     <input type="text" id="filtro2_6" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
                                 </th>
                                 <th></th>
@@ -317,6 +384,20 @@
                         <p id="contadorResultados" class="text-sm font-medium text-primary-dark dark:text-primary-light">
                             <!-- Contador será inserido aqui -->
                         </p>
+                    </div>
+                    
+                    <!-- Legenda visual -->
+                    <div class="mt-4 p-3 bg-blue-50 dark:bg-blue-900 rounded-lg">
+                        <h4 class="text-sm font-bold text-blue-800 dark:text-blue-200 mb-2">🔍 Estilo Oficial Caixa:</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full" style="background: #ba184a; border: 2px solid #9e1440;"></div>
+                                <span class="text-blue-700 dark:text-blue-300">🎯 1º e 2º Sorteio - Mesma cor oficial (vermelho/rosa)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-blue-700 dark:text-blue-300 text-xs">✨ Separação por títulos e layout como no site da Caixa</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -392,7 +473,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <!-- 1º Sorteio -->
                     <div class="primeiro-sorteio p-4 rounded-lg">
-                        <h5 class="text-center font-bold mb-3" style="color: #660d2b;">1º Sorteio</h5>
+                        <h5 class="text-center font-bold mb-3" style="color: #660d2b;">🎯 1º Sorteio</h5>
                         <div class="overflow-x-auto">
                             <table id="tabelaAnalise1" class="w-full rounded-lg" style="border: 1px solid #f798af;">
                                 <!-- Tabela será gerada dinamicamente -->
@@ -405,9 +486,9 @@
                     
                     <!-- 2º Sorteio -->
                     <div class="segundo-sorteio p-4 rounded-lg">
-                        <h5 class="text-center font-bold mb-3" style="color: #660d2b;">2º Sorteio</h5>
+                        <h5 class="text-center font-bold mb-3" style="color: #660d2b;">🎲 2º Sorteio</h5>
                         <div class="overflow-x-auto">
-                            <table id="tabelaAnalise2" class="w-full rounded-lg" style="border: 1px solid #f798af;">
+                            <table id="tabelaAnalise2" class="w-full rounded-lg" style="border: 1px solid #7c3aed;">
                                 <!-- Tabela será gerada dinamicamente -->
                             </table>
                         </div>
@@ -715,14 +796,17 @@
             return null;
         }
 
-        // Função para criar célula de número com destaque par/ímpar
-        function criarCelulaNumero(numero) {
+        // Função para criar célula de número com destaque par/ímpar e sorteio
+        function criarCelulaNumero(numero, sorteio) {
             const cellNumero = document.createElement('td');
             cellNumero.className = 'px-1 py-3 whitespace-nowrap text-center';
             
             const divNumero = document.createElement('div');
             divNumero.textContent = numero;
             divNumero.dataset.numero = numero;
+            
+            // Adicionar classe do sorteio
+            divNumero.classList.add(`sorteio-${sorteio}`);
 
             // Aplicar cores baseado em par/ímpar
             aplicarDestaque(divNumero, parseInt(numero));
@@ -810,12 +894,17 @@
                     }
                     
                     primeiraSena.forEach((numero, index) => {
-                        const cellNumero = criarCelulaNumero(numero);
+                        const cellNumero = criarCelulaNumero(numero, 1);
                         cellNumero.dataset.sorteio = '1';
                         cellNumero.dataset.posicao = index + 1;
                         row.appendChild(cellNumero);
                     });
                 }
+
+                // Separador visual
+                const cellSeparador = document.createElement('td');
+                cellSeparador.className = 'px-0 py-3 w-1 separador-sorteios';
+                row.appendChild(cellSeparador);
 
                 // 2º Sorteio (6 números)
                 if (data.listaDezenasSegundoSorteio) {
@@ -825,7 +914,7 @@
                     }
                     
                     segundaSena.forEach((numero, index) => {
-                        const cellNumero = criarCelulaNumero(numero);
+                        const cellNumero = criarCelulaNumero(numero, 2);
                         cellNumero.dataset.sorteio = '2';
                         cellNumero.dataset.posicao = index + 1;
                         row.appendChild(cellNumero);
@@ -1096,7 +1185,7 @@
 
             dadosSorteios.innerHTML = `
                 <div class="primeiro-sorteio p-4 rounded-lg">
-                    <h5 class="font-bold mb-3 text-center" style="color: #660d2b;">1º Sorteio</h5>
+                    <h5 class="font-bold mb-3 text-center" style="color: #660d2b;">🎯 1º Sorteio</h5>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="text-center">
                             <div class="text-2xl font-bold text-blue-600">${stats1.pares}</div>
@@ -1109,7 +1198,7 @@
                     </div>
                 </div>
                 <div class="segundo-sorteio p-4 rounded-lg">
-                    <h5 class="font-bold mb-3 text-center" style="color: #660d2b;">2º Sorteio</h5>
+                    <h5 class="font-bold mb-3 text-center" style="color: #660d2b;">🎲 2º Sorteio</h5>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="text-center">
                             <div class="text-2xl font-bold text-blue-600">${stats2.pares}</div>
@@ -1201,7 +1290,7 @@
             // Gerar tabela para 1º sorteio
             let html1 = `
                 <thead style="background-color: #fcd9e1;">
-                    <tr><th colspan="10" class="text-center text-xs font-bold py-2" style="color: #660d2b;">Números que saíram</th></tr>
+                    <tr><th colspan="10" class="text-center text-xs font-bold py-2" style="color: #660d2b;">🎯 Números que saíram no 1º Sorteio</th></tr>
                     <tr>`;
             
             for (let i = 1; i <= 10; i++) {
@@ -1214,7 +1303,7 @@
                 for (let col = 0; col < 10; col++) {
                     const num = linha * 10 + col + 1;
                     const saiu = numeros1.has(num);
-                    html1 += `<td class="px-1 py-1 text-center border text-xs" style="border-color: #f798af;">${saiu ? num : ''}</td>`;
+                    html1 += `<td class="px-1 py-1 text-center border text-xs font-bold" style="border-color: #f798af; ${saiu ? 'background-color: #ba184a; color: white;' : ''}">${saiu ? num : ''}</td>`;
                 }
                 html1 += '</tr>';
             }
@@ -1224,12 +1313,12 @@
 
             // Gerar tabela para 2º sorteio
             let html2 = `
-                <thead style="background-color: #fcd9e1;">
-                    <tr><th colspan="10" class="text-center text-xs font-bold py-2" style="color: #660d2b;">Números que saíram</th></tr>
+                <thead style="background-color: #e1c9f7;">
+                    <tr><th colspan="10" class="text-center text-xs font-bold py-2" style="color: #4a1a5b;">🎲 Números que saíram no 2º Sorteio</th></tr>
                     <tr>`;
             
             for (let i = 1; i <= 10; i++) {
-                html2 += `<th class="px-1 py-1 text-center text-xs font-bold border" style="border-color: #f798af;">${i}</th>`;
+                html2 += `<th class="px-1 py-1 text-center text-xs font-bold border" style="border-color: #7c3aed;">${i}</th>`;
             }
             html2 += `</tr></thead><tbody>`;
             
@@ -1238,7 +1327,7 @@
                 for (let col = 0; col < 10; col++) {
                     const num = linha * 10 + col + 1;
                     const saiu = numeros2.has(num);
-                    html2 += `<td class="px-1 py-1 text-center border text-xs" style="border-color: #f798af;">${saiu ? num : ''}</td>`;
+                    html2 += `<td class="px-1 py-1 text-center border text-xs font-bold" style="border-color: #7c3aed; ${saiu ? 'background-color: #7c3aed; color: white;' : ''}">${saiu ? num : ''}</td>`;
                 }
                 html2 += '</tr>';
             }
@@ -1255,13 +1344,13 @@
             }
 
             document.getElementById('numerosNaoSairam').innerHTML = `
-                <div class="bg-white dark:bg-gray-800 p-3 rounded">
-                    <h6 class="font-bold mb-2 text-blue-800 dark:text-blue-200">1º Sorteio - Não saíram:</h6>
-                    <div class="text-sm text-blue-700 dark:text-blue-300">${naoSairam1.join(', ') || 'Todos saíram'}</div>
+                <div class="bg-white dark:bg-gray-800 p-3 rounded border-l-4 border-primary">
+                    <h6 class="font-bold mb-2" style="color: #ba184a;">🎯 1º Sorteio - Não saíram:</h6>
+                    <div class="text-sm text-gray-700 dark:text-gray-300">${naoSairam1.join(', ') || 'Todos saíram'}</div>
                 </div>
-                <div class="bg-white dark:bg-gray-800 p-3 rounded">
-                    <h6 class="font-bold mb-2 text-blue-800 dark:text-blue-200">2º Sorteio - Não saíram:</h6>
-                    <div class="text-sm text-blue-700 dark:text-blue-300">${naoSairam2.join(', ') || 'Todos saíram'}</div>
+                <div class="bg-white dark:bg-gray-800 p-3 rounded border-l-4 border-purple-500">
+                    <h6 class="font-bold mb-2 text-purple-800 dark:text-purple-200">🎲 2º Sorteio - Não saíram:</h6>
+                    <div class="text-sm text-gray-700 dark:text-gray-300">${naoSairam2.join(', ') || 'Todos saíram'}</div>
                 </div>
             `;
 
