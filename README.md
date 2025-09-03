@@ -70,3 +70,31 @@ Agora você tem DEZ versões completas:
 
 
 Todas com funcionalidades únicas e temas personalizados! 🚀🎯🎨
+
+
+Principais melhorias adicionadas:
+🎯 Animação Pulse Corrigida:
+Pulse com as cores da Dupla Sena (#fef2f5, #ba184a, #660d2b)
+Animação suave de 3 segundos
+🎲 Gerador de Palpites Completo:
+3 Estratégias adaptadas para Dupla Sena (2 sorteios de 6 números cada)
+Eliminação inteligente dos 12 números do último concurso
+Download em múltiplos formatos (TXT, HTML, XLSX)
+Histórico de palpites gerados
+📊 Análise Visual Avançada:
+Análise separada para 1º e 2º sorteio
+Tabelas visuais por sorteio
+Números que não saíram por sorteio
+Controle de jogos a analisar
+🔧 Funcionalidades Técnicas:
+Carregamento automático de todos os concursos
+Barra de progresso com cancelamento
+Filtros avançados por sorteio
+Estatísticas detalhadas por sorteio
+Toggle da tabela de resultados
+🎨 Cores e Visual:
+Mantidas as cores oficiais da Dupla Sena (#ba184a)
+Gradientes e efeitos visuais específicos
+Separadores visuais entre os sorteios
+Badges diferenciados para cada sorteio
+Agora a Dupla Sena tem todas as funcionalidades avançadas dos outros jogos, adaptadas para seus 2 sorteios de 6 números cada! 🎯🎲
