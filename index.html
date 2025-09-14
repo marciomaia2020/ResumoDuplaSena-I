@@ -5,38 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados Dupla Sena</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+	<script src="./js/scripts.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#ba184a',
-                        'primary-light': '#d41e5b',
-                        'primary-dark': '#9e1440',
-                        'light-bg': '#fef2f5',
-                        'dark-bg': '#2e0a15',
-                        'custom-100': '#ffffff',
-                        'custom-95': '#fef2f5',
-                        'custom-90': '#fde6eb',
-                        'custom-85': '#fcd9e1',
-                        'custom-80': '#fbccd7',
-                        'custom-75': '#fabfcd',
-                        'custom-70': '#f9b2c3',
-                        'custom-65': '#f8a5b9',
-                        'custom-60': '#f798af',
-                        'custom-55': '#f68ba5',
-                        'custom-50': '#f57e9b',
-                        'custom-45': '#f47191',
-                        'custom-40': '#f36487',
-                        'custom-35': '#f2577d',
-                        'custom-30': '#f14a73',
-                        'custom-29': '#ba184a',
-                        'custom-25': '#9e1440',
-                        'custom-20': '#821136',
-                        'custom-15': '#660d2b',
-                        'custom-10': '#2e0a15',
-                        'custom-5': '#1a0509',
-                        'custom-0': '#000000'
+                        primary: '#BA184A',
+                        'primary-light': '#e21d5c',
+                        'primary-dark': '#9e1540',
+                        'light-bg': '#fce8ef',
+                        'dark-bg': '#170309',
+                        // Paleta completa baseada em #BA184A
+                        'brand-100': '#ffffff',  // 100%
+                        'brand-95': '#fce8ef',   // 95% 
+                        'brand-90': '#f9d2de',   // 90%
+                        'brand-85': '#f6bbce',   // 85%
+                        'brand-80': '#f3a5be',   // 80%
+                        'brand-75': '#f08ead',   // 75%
+                        'brand-70': '#ed789d',   // 70%
+                        'brand-65': '#ea618d',   // 65%
+                        'brand-60': '#e84a7c',   // 60%
+                        'brand-55': '#e5346c',   // 55%
+                        'brand-50': '#e21d5c',   // 50%
+                        'brand-45': '#cb1a52',   // 45%
+                        'brand-40': '#b51749',   // 40%
+                        'brand-35': '#ba184a',   // 35% - COR PRINCIPAL
+                        'brand-30': '#9e1540',   // 30%
+                        'brand-25': '#871237',   // 25%
+                        'brand-20': '#710f2e',   // 20%
+                        'brand-15': '#5a0c25',   // 15%
+                        'brand-10': '#44091b',   // 10%
+                        'brand-5': '#2d0612',    // 5%
+                        'brand-0': '#000000',    // 0%
+                        // Manter compatibilidade com a paleta rosa
+                        'pink-50': '#fce8ef',
+                        'pink-100': '#f9d2de',
+                        'pink-200': '#f6bbce',
+                        'pink-300': '#f3a5be',
+                        'pink-400': '#e84a7c',
+                        'pink-500': '#ba184a',
+                        'pink-600': '#9e1540',
+                        'pink-700': '#871237',
+                        'pink-800': '#710f2e',
+                        'pink-900': '#44091b'
                     }
                 }
             }
@@ -57,90 +70,36 @@
         .loading-circle {
             width: 100px;
             height: 100px;
-            background-image: linear-gradient(#fef2f5, #ba184a, #660d2b);
+            background-image: linear-gradient(#fce8ef, #ba184a, #44091b);
             border-radius: 50%;
             animation: pulse 3s infinite;
         }
-        
         .numero-par {
-            background-color: #fcd9e1;
-            color: #660d2b;
-            border-radius: 8px;
-            font-weight: 700;
-            padding: 8px;
-            font-size: 16px;
-            text-align: center;
-            min-width: 36px;
-            min-height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #9e1440;
+            background-color: #f9d2de;
+            color: #871237;
+            border-radius: 6px;
+            font-weight: 600;
         }
         
         .numero-impar {
-            background-color: #f798af;
-            color: #2e0a15;
-            border-radius: 8px;
-            font-weight: 700;
-            padding: 8px;
-            font-size: 16px;
-            text-align: center;
-            min-width: 36px;
-            min-height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #ba184a;
+            background-color: #f3a5be;
+            color: #5a0c25;
+            border-radius: 6px;
+            font-weight: 600;
         }
         
         .dark .numero-par {
-            background-color: #660d2b;
-            color: #fcd9e1;
+            background-color: #871237;
+            color: #f9d2de;
         }
         
         .dark .numero-impar {
-            background-color: #9e1440;
-            color: #fef2f5;
-        }
-        
-        /* 🎯 ESTILO OFICIAL CAIXA - MESMA COR PARA AMBOS SORTEIOS */
-        .sorteio-1 .numero-par,
-        .sorteio-2 .numero-par {
-            background: #ba184a;
-            color: white;
-            border-radius: 50%;
-            border: 3px solid #9e1440;
-            box-shadow: 0 4px 12px rgba(186, 24, 74, 0.3);
-            width: 40px;
-            height: 40px;
-            font-weight: 900;
-        }
-        
-        .sorteio-1 .numero-impar,
-        .sorteio-2 .numero-impar {
-            background: #ba184a;
-            color: white;
-            border-radius: 50%;
-            border: 3px solid #9e1440;
-            box-shadow: 0 4px 12px rgba(186, 24, 74, 0.3);
-            width: 40px;
-            height: 40px;
-            font-weight: 900;
-        }
-        
-        /* Modo escuro - manter a mesma cor oficial */
-        .dark .sorteio-1 .numero-par,
-        .dark .sorteio-2 .numero-par,
-        .dark .sorteio-1 .numero-impar,
-        .dark .sorteio-2 .numero-impar {
-            background: #ba184a;
-            color: white;
-            border-color: #d41e5b;
+            background-color: #5a0c25;
+            color: #f3a5be;
         }
         
         .filtro-ativo {
-            background-color: #ba184a;
+            background-color: #BA184A;
             color: white;
         }
 
@@ -157,15 +116,15 @@
         }
 
         .numero-disponivel {
-            background-color: #f798af;
-            color: #2e0a15;
+            background-color: #f3a5be;
+            color: #5a0c25;
             border: 2px solid #ba184a;
         }
 
         .dark .numero-disponivel {
-            background-color: #660d2b;
-            color: #f798af;
-            border: 2px solid #9e1440;
+            background-color: #5a0c25;
+            color: #f3a5be;
+            border: 2px solid #e21d5c;
         }
 
         .numero-palpite {
@@ -180,61 +139,29 @@
             color: #60a5fa;
             border: 2px solid #2563eb;
         }
-        
-        .sorteio-badge-1 {
-            background: linear-gradient(45deg, #ba184a, #d41e5b);
-            color: white;
-            font-weight: bold;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 14px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .sorteio-badge-2 {
-            background: linear-gradient(45deg, #7c3aed, #a855f7);
-            color: white;
-            font-weight: bold;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 14px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .primeiro-sorteio {
-            border-left: 4px solid #ba184a;
-            background: linear-gradient(135deg, #fef2f5, #fde6eb);
-        }
-        
-        .segundo-sorteio {
-            border-left: 4px solid #7c3aed;
-            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-        }
-        
-        /* Separador visual entre sorteios */
-        .separador-sorteios {
-            background: linear-gradient(to bottom, #ba184a, #7c3aed);
-            width: 4px;
-            min-height: 40px;
-        }
     </style>
 </head>
 <body class="bg-light-bg dark:bg-dark-bg min-h-screen">
     <div class="container mx-auto px-4 py-8">
         <!-- Header -->
         <div class="text-center mb-8">
+	    <img src="https://i.postimg.cc/hPDHjbJz/dupla-sena.jpg" alt="Dupla Sena Logo" class="logo">
             <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                🎯 Resultados Dupla Sena - ORDEM DE SORTEIO
+                🎰 Resultados Dupla Sena - ORDEM DE SORTEIO
             </h1>
-            <p class="text-gray-600 dark:text-gray-300">
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
                 Resultados oficiais da Caixa Econômica Federal - DO PRIMEIRO AO ÚLTIMO CONCURSO
             </p>
+            
+            <!-- Botão Como Funciona Principal -->
+            <div class="flex justify-center">
+                <button 
+                    id="comoFuncionaPrincipalBtn" 
+                    class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                    📖 COMO FUNCIONA - Guia Completo
+                </button>
+            </div>
         </div>
 
         <!-- Controles -->
@@ -276,12 +203,12 @@
                     <label class="flex items-center">
                         <input type="checkbox" id="destacarPares" class="mr-2" checked>
                         <span class="text-gray-700 dark:text-gray-300">Pares</span>
-                        <div class="w-4 h-4 ml-2 rounded border" style="background-color: #fcd9e1;"></div>
+                        <div class="w-4 h-4 bg-pink-200 ml-2 rounded border"></div>
                     </label>
                     <label class="flex items-center">
                         <input type="checkbox" id="destacarImpares" class="mr-2" checked>
                         <span class="text-gray-700 dark:text-gray-300">Ímpares</span>
-                        <div class="w-4 h-4 ml-2 rounded border" style="background-color: #f798af;"></div>
+                        <div class="w-4 h-4 bg-pink-400 ml-2 rounded border"></div>
                     </label>
                     
                     <!-- Divisor -->
@@ -289,7 +216,7 @@
                     
                     <label class="flex items-center">
                         <input type="checkbox" id="ordenarCrescente" class="mr-2">
-                        <span class="text-gray-700 dark:text-gray-300">📊 Ordenar números crescente</span>
+                        <span class="text-gray-700 dark:text-gray-300">📊 Ordenar dezenas crescente</span>
                     </label>
                     
                     <!-- Divisor -->
@@ -332,6 +259,78 @@
             <span id="erroMsg"></span>
         </div>
 
+        <!-- NOVA SEÇÃO: Análise de Ciclo por Posição -->
+        <div id="analiseCicloPosicao" class="hidden bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-800 dark:text-white">🔄 Análise de Ciclo por Posição</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-4">Análise detalhada de quais números saíram em cada posição específica (Bola 1, 2, 3, 4, 5, 6) em ambos os sorteios</p>
+            
+            <!-- Informações do Período do Ciclo -->
+            <div id="infoPeriodoCiclo" class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-6 border border-blue-200 dark:border-blue-700">
+                <h3 class="text-lg font-semibold text-center text-blue-800 dark:text-blue-200 mb-3">📅 Período do Ciclo Atual (Últimos 60 Concursos)</h3>
+                <div id="dadosPeriodo" class="text-center">
+                    <!-- Dados do período serão inseridos aqui -->
+                </div>
+            </div>
+            
+            <!-- Seletor de Sorteio -->
+            <div class="text-center mb-6">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" id="btnPrimeiroSorteio" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                        🎯 1º Sorteio
+                    </button>
+                    <button type="button" id="btnSegundoSorteio" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                        🎯 2º Sorteio
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6" id="cicloContainer">
+                <!-- Cards de posição serão gerados dinamicamente -->
+            </div>
+
+            <!-- Resumo Geral do Ciclo -->
+            <div class="mt-8 bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">📊 Resumo Geral dos Ciclos</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" id="resumoCiclos">
+                    <!-- Resumos serão gerados dinamicamente -->
+                </div>
+            </div>
+
+            <!-- Gerador de Jogos por Posição -->
+            <div class="mt-8 border-t border-blue-200 dark:border-blue-700 pt-8">
+                <div class="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                    <h4 class="text-xl font-semibold mb-4 text-center text-gray-800 dark:text-white">🎮 Gerador de Jogos por Análise de Posição</h4>
+                    <p class="text-center text-gray-600 dark:text-gray-400 mb-6">Selecione números específicos baseados na frequência em cada posição</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6" id="seletoresPosicao">
+                        <!-- Seletores serão gerados dinamicamente -->
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                        <button id="gerarJogoPosicao" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-semibold text-base">
+                            🎯 Gerar Jogo pela Análise de Posição
+                        </button>
+                        <button id="limparSelecoesPosicao" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors text-base">
+                            🔄 Limpar Seleções
+                        </button>
+                    </div>
+
+                    <!-- Jogo Gerado -->
+                    <div id="jogoGeradoPosicao" class="hidden mt-6 p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-300 dark:border-gray-600">
+                        <h5 class="text-lg font-semibold mb-3 text-center text-gray-800 dark:text-white">🎲 Jogo Gerado pela Análise de Posição</h5>
+                        <div id="numerosJogoGerado" class="flex justify-center gap-2 mb-4">
+                            <!-- Números do jogo serão inseridos aqui -->
+                        </div>
+                        <div class="text-center">
+                            <button id="adicionarJogoAoHistoricoPosicao" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-base">
+                                📋 Adicionar ao Histórico
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Botão Toggle Tabela -->
         <div id="toggleTabelaContainer" class="hidden mb-4 text-center">
             <button 
@@ -345,8 +344,8 @@
         <!-- Tabela de Resultados -->
         <div id="resultados" class="hidden">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                <div class="text-white p-4" style="background: linear-gradient(to right, #ba184a, #7c3aed);">
-                    <h2 class="text-xl font-bold text-center">🎯 DUPLA SENA - TODOS OS CONCURSOS 🎲</h2>
+                <div class="bg-gradient-to-r from-primary to-pink-600 text-white p-4">
+                    <h2 class="text-xl font-bold text-center">DUPLA SENA - TODOS OS CONCURSOS</h2>
                 </div>
                 
                 <div class="overflow-x-auto">
@@ -359,67 +358,90 @@
                                 <th class="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                                     Data Sorteio
                                 </th>
-                                <!-- 6 colunas para o 1º sorteio -->
-                                <th colspan="6" class="px-2 py-3 text-center text-xs font-medium text-white uppercase tracking-wider" style="background: linear-gradient(45deg, #ba184a, #d41e5b);">
-                                    <span class="sorteio-badge-1">
-                                        🎯 1º SORTEIO 🎯
-                                    </span>
+                                <th colspan="6" class="px-3 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b">
+                                    1º Sorteio
                                 </th>
-                                <!-- Separador visual -->
-                                <th class="px-0 py-3 w-1" style="background: linear-gradient(to bottom, #ba184a, #7c3aed);">
-                                </th>
-                                <!-- 6 colunas para o 2º sorteio -->
-                                <th colspan="6" class="px-2 py-3 text-center text-xs font-medium text-white uppercase tracking-wider" style="background: linear-gradient(45deg, #7c3aed, #a855f7);">
-                                    <span class="sorteio-badge-2">
-                                        🎲 2º SORTEIO 🎲
-                                    </span>
+                                <th colspan="6" class="px-3 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider border-b">
+                                    2º Sorteio
                                 </th>
                                 <th class="px-3 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                                    P/I
+                                    Estatística P/I
                                 </th>
                             </tr>
                             <tr>
                                 <th></th>
                                 <th></th>
-                                <!-- Filtros para 1º sorteio -->
-                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
-                                    <input type="text" id="filtro1_1" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 1</span>
+                                        <input type="text" id="filtro1_1" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
-                                    <input type="text" id="filtro1_2" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 2</span>
+                                        <input type="text" id="filtro1_2" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
-                                    <input type="text" id="filtro1_3" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 3</span>
+                                        <input type="text" id="filtro1_3" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
-                                    <input type="text" id="filtro1_4" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 4</span>
+                                        <input type="text" id="filtro1_4" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
-                                    <input type="text" id="filtro1_5" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 5</span>
+                                        <input type="text" id="filtro1_5" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <th class="px-1 py-2 text-center" style="background-color: #fef2f5;">
-                                    <input type="text" id="filtro1_6" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 6</span>
+                                        <input type="text" id="filtro1_6" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <!-- Separador -->
-                                <th class="px-0 py-2 w-1 separador-sorteios"></th>
-                                <!-- Filtros para 2º sorteio -->
-                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
-                                    <input type="text" id="filtro2_1" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 1</span>
+                                        <input type="text" id="filtro2_1" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
-                                    <input type="text" id="filtro2_2" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 2</span>
+                                        <input type="text" id="filtro2_2" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
-                                    <input type="text" id="filtro2_3" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 3</span>
+                                        <input type="text" id="filtro2_3" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
-                                    <input type="text" id="filtro2_4" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 4</span>
+                                        <input type="text" id="filtro2_4" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
-                                    <input type="text" id="filtro2_5" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 5</span>
+                                        <input type="text" id="filtro2_5" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
-                                <th class="px-1 py-2 text-center" style="background-color: #f3f4f6;">
-                                    <input type="text" id="filtro2_6" placeholder="F" class="px-1 py-1 text-xs border rounded w-6">
+                                <th class="px-1 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    <div class="flex flex-col items-center">
+                                        <span class="text-xs">Bola 6</span>
+                                        <input type="text" id="filtro2_6" placeholder="Filtro" class="mt-1 px-1 py-1 text-xs border rounded w-14">
+                                    </div>
                                 </th>
                                 <th></th>
                             </tr>
@@ -439,27 +461,13 @@
                             <!-- Contador será inserido aqui -->
                         </p>
                     </div>
-                    
-                    <!-- Legenda visual -->
-                    <div class="mt-4 p-3 bg-blue-50 dark:bg-blue-900 rounded-lg">
-                        <h4 class="text-sm font-bold text-blue-800 dark:text-blue-200 mb-2">🔍 Dupla Sena - 6 números por sorteio:</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                            <div class="flex items-center gap-2">
-                                <div class="w-6 h-6 rounded-full" style="background: #ba184a; border: 2px solid #9e1440;"></div>
-                                <span class="text-blue-700 dark:text-blue-300">🎯 1º e 2º Sorteio - Mesma cor oficial (vermelho/rosa)</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-blue-700 dark:text-blue-300 text-xs">✨ Cada sorteio tem exatamente 6 dezenas únicas</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Resumo Estatístico -->
-        <div id="resumoEstatistico" class="hidden mt-8 rounded-lg p-6" style="background: linear-gradient(to right, #fef2f5, #fde6eb); border: 1px solid #f798af;">
-            <h3 class="text-xl font-bold mb-6 text-center" style="color: #660d2b;">
+        <div id="resumoEstatistico" class="hidden mt-8 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900 dark:to-purple-900 border border-pink-200 dark:border-pink-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-pink-800 dark:text-pink-200 mb-6 text-center">
                 📊 Resumo Estatístico Par/Ímpar
             </h3>
             <div id="estatisticasGerais" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -476,89 +484,108 @@
                 </div>
             </div>
             
-            <!-- Estatísticas por sorteio -->
-            <div id="estatisticasSorteios" class="mt-6 p-4 bg-white dark:bg-gray-800 rounded-lg">
+            <!-- Estatísticas por posição (só quando ordem original) -->
+            <div id="estatisticasPosicao" class="hidden mt-6 p-4 bg-white dark:bg-gray-800 rounded-lg">
                 <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3 text-center">
-                    🎯 Comparação entre Sorteios
+                    🎯 Estatísticas por Posição (Ordem Original do Sorteio)
                 </h4>
-                <div id="dadosSorteios" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Dados dos sorteios serão inseridos aqui -->
+                <div id="dadosPosicoes" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    <!-- Dados por posição serão inseridos aqui -->
                 </div>
             </div>
 
-            <!-- Análise Visual por Sorteio -->
-            <div id="analiseVisual" class="hidden mt-6 p-4 rounded-lg" style="background: linear-gradient(to bottom right, #fde6eb, #fcd9e1); border: 1px solid #f798af;">
-                <h4 class="text-lg font-semibold mb-3 text-center" style="color: #660d2b;">
-                    📊 Análise Visual - Números que Saíram por Sorteio
+            <!-- Análise Visual por Posição -->
+            <div id="analiseVisual" class="hidden mt-6 p-4 bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-900 dark:to-purple-900 rounded-lg border border-pink-200 dark:border-pink-700">
+                <h4 class="text-lg font-semibold text-pink-800 dark:text-pink-200 mb-3 text-center">
+                    📊 Análise Visual - Números que Saíram por Posição
                 </h4>
                 
                 <!-- Controle de jogos a analisar -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                    <label class="text-sm font-medium" style="color: #821136;">
+                    <label class="text-sm font-medium text-pink-700 dark:text-pink-300">
                         Analisar últimos:
                     </label>
                     <input 
                         type="number" 
                         id="jogosAnalisar" 
-                        value="50"
+                        value="30"
                         min="1"
                         max="100"
                         placeholder="Nº de jogos"
-                        class="px-3 py-2 text-base border rounded-lg focus:ring-2 dark:bg-gray-700 dark:text-white w-24"
-                        style="border-color: #f798af; --tw-ring-color: #ba184a;"
+                        class="px-3 py-2 text-base border border-pink-300 dark:border-pink-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white w-24"
                     >
-                    <span class="text-sm" style="color: #821136;">jogos mais recentes</span>
+                    <span class="text-sm text-pink-700 dark:text-pink-300">jogos mais recentes</span>
                     <button 
                         id="atualizarAnalise" 
-                        class="text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm"
-                        style="background-color: #ba184a;"
-                        onmouseover="this.style.backgroundColor='#9e1440'"
-                        onmouseout="this.style.backgroundColor='#ba184a'"
+                        class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm"
                     >
                         🔄 Atualizar
                     </button>
                 </div>
                 
-                <p class="text-sm text-center mb-4" style="color: #821136;">
-                    ✅ = Número saiu neste sorteio | Em branco = Número NÃO saiu
-                </p>
-                
-                <!-- Tabelas visuais para ambos os sorteios -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- 1º Sorteio -->
-                    <div class="primeiro-sorteio p-4 rounded-lg">
-                        <h5 class="text-center font-bold mb-3" style="color: #660d2b;">🎯 1º Sorteio</h5>
-                        <div class="overflow-x-auto">
-                            <table id="tabelaAnalise1" class="w-full rounded-lg" style="border: 1px solid #f798af;">
-                                <!-- Tabela será gerada dinamicamente -->
-                            </table>
-                        </div>
-                        <div id="resumoAnalise1" class="mt-2 text-center text-sm" style="color: #660d2b;">
-                            <!-- Resumo será inserido aqui -->
-                        </div>
-                    </div>
-                    
-                    <!-- 2º Sorteio -->
-                    <div class="segundo-sorteio p-4 rounded-lg">
-                        <h5 class="text-center font-bold mb-3" style="color: #660d2b;">🎲 2º Sorteio</h5>
-                        <div class="overflow-x-auto">
-                            <table id="tabelaAnalise2" class="w-full rounded-lg" style="border: 1px solid #7c3aed;">
-                                <!-- Tabela será gerada dinamicamente -->
-                            </table>
-                        </div>
-                        <div id="resumoAnalise2" class="mt-2 text-center text-sm" style="color: #660d2b;">
-                            <!-- Resumo será inserido aqui -->
-                        </div>
+                <!-- Seletor de Sorteio -->
+                <div class="text-center mb-4">
+                    <div class="inline-flex rounded-md shadow-sm" role="group">
+                        <button type="button" id="btnAnalise1Sorteio" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                            🎯 1º Sorteio
+                        </button>
+                        <button type="button" id="btnAnalise2Sorteio" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                            🎯 2º Sorteio
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Números que NÃO saíram -->
+                <p class="text-sm text-pink-700 dark:text-pink-300 text-center mb-4">
+                    ✅ = Número saiu nesta posição | Em branco = Número NÃO saiu
+                </p>
+                
+                <!-- Tabela visual -->
+                <div class="overflow-x-auto">
+                    <table id="tabelaAnaliseVisual" class="w-full border border-pink-300 dark:border-pink-600 rounded-lg">
+                        <!-- Tabela será gerada dinamicamente -->
+                    </table>
+                </div>
+                
+                <!-- Resumo estatístico -->
+                <div id="resumoAnaliseVisual" class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+                    <!-- Resumo será inserido aqui -->
+                </div>
+                
+                <!-- Números que NÃO saíram por posição -->
                 <div class="mt-6 p-4 bg-blue-100 dark:bg-blue-800 rounded-lg">
                     <p class="text-sm font-medium text-blue-800 dark:text-blue-200 mb-3 text-center">
-                        NÚMEROS QUE NÃO SAÍRAM NOS ÚLTIMOS <span id="jogosEscolhidos">50</span> JOGOS:
+                        NÚMEROS QUE NÃO SAÍRAM NOS ÚLTIMOS <span id="jogosEscolhidos">30</span> JOGOS POR POSIÇÃO:
                     </p>
-                    <div id="numerosNaoSairam" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Números que não saíram serão inseridos aqui -->
+                    
+                    <!-- Tabela dos números que faltam por posição -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full border border-blue-300 dark:border-blue-600 rounded-lg bg-white dark:bg-gray-800">
+                            <thead class="bg-blue-200 dark:bg-blue-700">
+                                <tr>
+                                    <th class="px-3 py-2 text-center text-sm font-bold text-blue-800 dark:text-blue-200 border border-blue-300 dark:border-blue-600">
+                                        Bola 1
+                                    </th>
+                                    <th class="px-3 py-2 text-center text-sm font-bold text-blue-800 dark:text-blue-200 border border-blue-300 dark:border-blue-600">
+                                        Bola 2
+                                    </th>
+                                    <th class="px-3 py-2 text-center text-sm font-bold text-blue-800 dark:text-blue-200 border border-blue-300 dark:border-blue-600">
+                                        Bola 3
+                                    </th>
+                                    <th class="px-3 py-2 text-center text-sm font-bold text-blue-800 dark:text-blue-200 border border-blue-300 dark:border-blue-600">
+                                        Bola 4
+                                    </th>
+                                    <th class="px-3 py-2 text-center text-sm font-bold text-blue-800 dark:text-blue-200 border border-blue-300 dark:border-blue-600">
+                                        Bola 5
+                                    </th>
+                                    <th class="px-3 py-2 text-center text-sm font-bold text-blue-800 dark:text-blue-200 border border-blue-300 dark:border-blue-600">
+                                        Bola 6
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaNumerosNaoSairam" class="bg-blue-50 dark:bg-blue-900">
+                                <!-- Números que não saíram por posição serão inseridos aqui -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -581,7 +608,7 @@
                     🎯 Gerador de Palpites Inteligente
                 </h3>
                 <p class="text-purple-600 dark:text-purple-300 text-sm">
-                    Estratégias baseadas em eliminação de números dos últimos concursos
+                    Estratégias baseadas em eliminação de números do último concurso
                 </p>
                 <button 
                     id="comoFuncionaBtn" 
@@ -604,17 +631,17 @@
             <!-- Estratégias de Palpite -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                 <!-- Estratégia 1: Eliminação Simples -->
-                <div class="bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-700 rounded-lg p-4">
-                    <h4 class="text-lg font-bold text-green-800 dark:text-green-200 mb-3 text-center">
+                <div class="bg-pink-50 dark:bg-pink-900 border border-pink-200 dark:border-pink-700 rounded-lg p-4">
+                    <h4 class="text-lg font-bold text-pink-800 dark:text-pink-200 mb-3 text-center">
                         🎲 Estratégia 1: Eliminação Simples
                     </h4>
-                    <p class="text-sm text-green-700 dark:text-green-300 mb-4 text-center">
-                        Elimina apenas os 12 números dos últimos concursos (6 de cada sorteio)
+                    <p class="text-sm text-pink-700 dark:text-pink-300 mb-4 text-center">
+                        Elimina apenas os 6 números do último concurso (sem repetir números entre jogos)
                     </p>
                     
                     <!-- Controles de quantidade -->
                     <div class="mb-4 text-center">
-                        <label class="text-sm font-medium text-green-700 dark:text-green-300 block mb-2">
+                        <label class="text-sm font-medium text-pink-700 dark:text-pink-300 block mb-2">
                             Quantidade de jogos:
                         </label>
                         <input 
@@ -622,19 +649,19 @@
                             id="quantidadeJogos1" 
                             value="1"
                             min="1"
-                            max="3"
+                            max="8"
                             step="1"
-                            class="px-3 py-1 text-base border border-green-300 dark:border-green-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent dark:bg-gray-700 dark:text-white w-20 text-center"
+                            class="px-3 py-1 text-base border border-pink-300 dark:border-pink-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white w-20 text-center"
                         />
-                        <span class="text-xs text-green-600 dark:text-green-400 block mt-1">
-                            Máx: 38 jogos por sorteio (números únicos)
+                        <span class="text-xs text-pink-600 dark:text-pink-400 block mt-1">
+                            Máx: 44 jogos (números únicos)
                         </span>
                     </div>
                     
                     <div class="text-center">
                         <button 
                             id="gerarEstrategia1" 
-                            class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50"
+                            class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50"
                         >
                             🎯 Gerar Palpites
                         </button>
@@ -654,7 +681,7 @@
                     </p>
                     <div class="text-center space-y-2">
                         <div id="statusProgressivo" class="text-xs text-blue-600 dark:text-blue-400">
-                            Sequência: 1/6 | Disponíveis: 38
+                            Sequência: 1/7 | Disponíveis: 44
                         </div>
                         <button 
                             id="gerarEstrategia2" 
@@ -680,7 +707,7 @@
                         🎰 Estratégia 3: Eliminação Livre
                     </h4>
                     <p class="text-sm text-purple-700 dark:text-purple-300 mb-4 text-center">
-                        Elimina apenas os 12 números dos últimos concursos (permite repetir números entre jogos)
+                        Elimina apenas os 6 números do último concurso (permite repetir números entre jogos)
                     </p>
                     
                     <!-- Controles de quantidade -->
@@ -697,7 +724,7 @@
                             class="px-3 py-1 text-base border border-purple-300 dark:border-purple-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white w-20 text-center"
                         >
                         <span class="text-xs text-purple-600 dark:text-purple-400 block mt-1">
-                            Máx: 50 jogos por sorteio (permite repetição)
+                            Máx: 50 jogos (permite repetição)
                         </span>
                     </div>
                     
@@ -733,7 +760,7 @@
 
                 <!-- Números Disponíveis -->
                 <div>
-                    <h5 class="text-sm font-medium text-green-600 dark:text-green-400 mb-2">
+                    <h5 class="text-sm font-medium text-pink-600 dark:text-pink-400 mb-2">
                         ✅ Números Disponíveis:
                     </h5>
                     <div id="numerosDisponiveis" class="flex flex-wrap gap-2">
@@ -763,31 +790,208 @@
             </div>
         </div>
 
+        <!-- Modal Principal "Como Funciona" -->
+        <div id="modalComoFuncionaPrincipal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-6xl w-full max-h-screen overflow-y-auto">
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-t-lg">
+                    <h2 class="text-3xl font-bold text-center mb-2">
+                        📖 COMO FUNCIONA - Guia Completo da Aplicação
+                    </h2>
+                    <p class="text-center text-blue-100">
+                        Todas as funcionalidades e seções explicadas detalhadamente para a Dupla Sena
+                    </p>
+                </div>
+                
+                <div class="p-6 space-y-8">
+                    <!-- 1. CARREGAMENTO DE DADOS -->
+                    <div class="bg-pink-50 dark:bg-pink-900 border border-pink-200 dark:border-pink-700 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-pink-800 dark:text-pink-200 mb-4 flex items-center">
+                            <span class="mr-3">🔍</span>1. Carregamento Automático de Dados
+                        </h3>
+                        <div class="space-y-4 text-pink-700 dark:text-pink-300">
+                            <p><strong>📊 Fonte de Dados:</strong> API oficial da Caixa Econômica Federal</p>
+                            <p><strong>📈 Abrangência:</strong> TODOS os concursos da Dupla Sena, do primeiro (1) ao último disponível</p>
+                            <p><strong>⚡ Carregamento:</strong> Automático ao abrir a aplicação, com barra de progresso</p>
+                            <p><strong>🎯 Peculiaridade:</strong> Cada concurso tem DOIS sorteios (1º e 2º sorteio) com 6 números cada</p>
+                            <p><strong>📱 Responsivo:</strong> Funciona em desktop, tablet e mobile</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. ANÁLISE DE CICLO POR POSIÇÃO -->
+                    <div class="bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-700 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-200 mb-4 flex items-center">
+                            <span class="mr-3">🔄</span>2. Análise de Ciclo por Posição
+                        </h3>
+                        <div class="space-y-4 text-blue-700 dark:text-blue-300">
+                            <p><strong>🎯 Conceito:</strong> Analisa quais números saíram em cada posição específica (Bola 1, 2, 3, 4, 5, 6)</p>
+                            <p><strong>🎲 Dupla Sena:</strong> Análise separada para 1º e 2º sorteios</p>
+                            <p><strong>📅 Período:</strong> Últimos 60 concursos (ciclo completo)</p>
+                            <p><strong>📊 Análise:</strong> Para cada posição e sorteio mostra:</p>
+                            <ul class="list-disc ml-6 space-y-1">
+                                <li>Números que mais saíram</li>
+                                <li>Números que menos saíram</li>
+                                <li>Números que nunca saíram</li>
+                                <li>Percentual de completude do ciclo</li>
+                            </ul>
+                            <p><strong>🎮 Gerador:</strong> Permite criar jogos baseados na frequência por posição</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. TABELA DE RESULTADOS -->
+                    <div class="bg-purple-50 dark:bg-purple-900 border border-purple-200 dark:border-purple-700 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-purple-800 dark:text-purple-200 mb-4 flex items-center">
+                            <span class="mr-3">📋</span>3. Tabela Completa de Resultados
+                        </h3>
+                        <div class="space-y-4 text-purple-700 dark:text-purple-300">
+                            <p><strong>📊 Visualização:</strong> Todos os concursos em ordem cronológica</p>
+                            <p><strong>🎯 Dupla Sena:</strong> Duas colunas de sorteios (1º e 2º) com 6 números cada</p>
+                            <p><strong>🎨 Destaques:</strong> Números pares e ímpares com cores diferentes</p>
+                            <p><strong>🔍 Filtros:</strong> Por posição específica de cada sorteio</p>
+                            <p><strong>📈 Ordenação:</strong> Crescente/decrescente por concurso ou por números</p>
+                            <p><strong>👁️ Toggle:</strong> Ocultar/mostrar tabela para economizar espaço</p>
+                            <p><strong>📱 Responsivo:</strong> Scroll horizontal em telas menores</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. RESUMO ESTATÍSTICO -->
+                    <div class="bg-emerald-50 dark:bg-emerald-900 border border-emerald-200 dark:border-emerald-700 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-emerald-800 dark:text-emerald-200 mb-4 flex items-center">
+                            <span class="mr-3">📈</span>4. Resumo Estatístico Par/Ímpar
+                        </h3>
+                        <div class="space-y-4 text-emerald-700 dark:text-emerald-300">
+                            <p><strong>⚖️ Análise:</strong> Distribuição de números pares vs ímpares (ambos os sorteios)</p>
+                            <p><strong>📊 Gráficos:</strong> Barras visuais da distribuição</p>
+                            <p><strong>🎯 Por Posição:</strong> Estatísticas específicas quando ordem original</p>
+                            <p><strong>👁️ Análise Visual:</strong> Tabela mostrando quais números saíram por posição</p>
+                            <p><strong>🔢 Números Faltantes:</strong> Lista dos que não saíram nos últimos X jogos</p>
+                            <p><strong>🎲 Configurável:</strong> Escolha quantos jogos analisar (1-100)</p>
+                            <p><strong>🎯 Dupla Sena:</strong> Análise separada para 1º e 2º sorteios</p>
+                        </div>
+                    </div>
+
+                    <!-- 5. GERADOR DE PALPITES -->
+                    <div class="bg-indigo-50 dark:bg-indigo-900 border border-indigo-200 dark:border-indigo-700 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-indigo-800 dark:text-indigo-200 mb-4 flex items-center">
+                            <span class="mr-3">🎯</span>5. Gerador de Palpites Inteligente
+                        </h3>
+                        <div class="space-y-4 text-indigo-700 dark:text-indigo-300">
+                            <p><strong>💡 Conceito:</strong> 4 estratégias baseadas em eliminação de números</p>
+                            <p><strong>🎯 Dupla Sena:</strong> Números de 1-50 (ao invés de 1-60 da Mega Sena)</p>
+                            
+                            <div class="ml-4 space-y-3">
+                                <div>
+                                    <p><strong>🎲 Estratégia 1 - Eliminação Simples:</strong></p>
+                                    <p class="ml-4">• Elimina apenas os 6 números do último concurso</p>
+                                    <p class="ml-4">• Gera 1-8 jogos únicos (sem repetir números)</p>
+                                </div>
+                                
+                                <div>
+                                    <p><strong>🔄 Estratégia 2 - Eliminação Progressiva:</strong></p>
+                                    <p class="ml-4">• Elimina números usados a cada sequência</p>
+                                    <p class="ml-4">• Maximiza cobertura sem repetições</p>
+                                    <p class="ml-4">• Reset automático quando necessário</p>
+                                </div>
+                                
+                                <div>
+                                    <p><strong>🎰 Estratégia 3 - Eliminação Livre:</strong></p>
+                                    <p class="ml-4">• Elimina apenas os 6 do último concurso</p>
+                                    <p class="ml-4">• Permite repetição entre jogos</p>
+                                    <p class="ml-4">• Gera até 50 jogos</p>
+                                </div>
+                                
+                                <div>
+                                    <p><strong>🎮 Estratégia 4 - Por Análise de Posição:</strong></p>
+                                    <p class="ml-4">• Baseado na análise de ciclo por posição</p>
+                                    <p class="ml-4">• Escolha manual por frequência</p>
+                                    <p class="ml-4">• Seleção individual por posição</p>
+                                </div>
+                            </div>
+                            
+                            <p><strong>📋 Histórico:</strong> Guarda os últimos 10 palpites gerados</p>
+                            <p><strong>🎯 Distribuição:</strong> Algoritmo equilibrado por faixas (baixa/média/alta)</p>
+                        </div>
+                    </div>
+
+                    <!-- 6. FUNCIONALIDADES AVANÇADAS -->
+                    <div class="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-200 mb-4 flex items-center">
+                            <span class="mr-3">⚙️</span>6. Funcionalidades Avançadas
+                        </h3>
+                        <div class="space-y-4 text-red-700 dark:text-red-300">
+                            <p><strong>🌙 Modo Escuro:</strong> Detecção automática das preferências do sistema</p>
+                            <p><strong>📱 Mobile First:</strong> Interface otimizada para todos os tamanhos de tela</p>
+                            <p><strong>⚡ Performance:</strong> Carregamento em lotes com cancelamento</p>
+                            <p><strong>🔄 Atualização:</strong> Dados sempre atualizados da API oficial</p>
+                            <p><strong>💾 Sem Dependências:</strong> Funciona offline após carregamento</p>
+                            <p><strong>🎨 UI/UX:</strong> Interface moderna com cores da Dupla Sena (#BA184A)</p>
+                        </div>
+                    </div>
+
+                    <!-- 7. DIFERENÇAS DA DUPLA SENA -->
+                    <div class="bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-yellow-800 dark:text-yellow-200 mb-4 flex items-center">
+                            <span class="mr-3">🎯</span>7. Especificidades da Dupla Sena
+                        </h3>
+                        <div class="space-y-4 text-yellow-700 dark:text-yellow-300">
+                            <p><strong>🎲 Dois Sorteios:</strong> Cada concurso tem 1º e 2º sorteio</p>
+                            <p><strong>🔢 Faixa de Números:</strong> 1 a 50 (ao invés de 1 a 60)</p>
+                            <p><strong>🎯 6 Números por Sorteio:</strong> Total de 12 números por concurso</p>
+                            <p><strong>🏆 Duas Chances:</strong> Possibilidade de acertar em qualquer um dos dois sorteios</p>
+                            <p><strong>📊 Análise Separada:</strong> Todas as estatísticas consideram ambos os sorteios</p>
+                            <p><strong>🎮 Estratégias:</strong> Palpites focam no padrão geral dos números sorteados</p>
+                        </div>
+                    </div>
+
+                    <!-- 8. AVISOS IMPORTANTES -->
+                    <div class="bg-orange-50 dark:bg-orange-900 border border-orange-200 dark:border-orange-700 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-orange-800 dark:text-orange-200 mb-4 flex items-center">
+                            <span class="mr-3">⚠️</span>8. Avisos Importantes
+                        </h3>
+                        <div class="space-y-3 text-orange-700 dark:text-orange-300">
+                            <p><strong>🎲 Aleatoriedade:</strong> A Dupla Sena é um jogo de azar puro</p>
+                            <p><strong>📊 Estatísticas:</strong> Análises históricas não garantem resultados futuros</p>
+                            <p><strong>🎯 Entretenimento:</strong> Use como ferramenta de análise e diversão</p>
+                            <p><strong>💰 Responsabilidade:</strong> Jogue com moderação e dentro de suas possibilidades</p>
+                            <p><strong>📈 Dados:</strong> Informações baseadas na API oficial da Caixa</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-800 px-6 py-4 rounded-b-lg text-center">
+                    <button 
+                        id="fecharModalPrincipal" 
+                        class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+                    >
+                        ✅ Entendi! Vamos Analisar os Dados
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Modal Popup "Como Funciona" -->
         <div id="modalComoFunciona" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-4xl w-full mx-4 max-h-screen overflow-y-auto">
                 <div class="bg-gradient-to-r from-purple-500 to-indigo-500 text-white p-6 rounded-t-lg">
                     <h2 class="text-2xl font-bold text-center">
-                        🎯 Como Funciona o Gerador de Palpites
+                        🎯 Como Funciona o Gerador de Palpites - Dupla Sena
                     </h2>
                 </div>
                 
                 <div class="p-6 space-y-6">
                     <!-- Estratégia 1 -->
-                    <div class="bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-700 rounded-lg p-4">
-                        <h3 class="text-xl font-bold text-green-800 dark:text-green-200 mb-3">
+                    <div class="bg-pink-50 dark:bg-pink-900 border border-pink-200 dark:border-pink-700 rounded-lg p-4">
+                        <h3 class="text-xl font-bold text-pink-800 dark:text-pink-200 mb-3">
                             🎲 Estratégia 1: Eliminação Simples
                         </h3>
-                        <div class="space-y-3 text-green-700 dark:text-green-300">
-                            <p><strong>Conceito:</strong> Remove apenas os 12 números que saíram no último concurso (6 do 1º + 6 do 2º sorteio).</p>
-                            <p><strong>Lógica:</strong> A chance dos mesmos 12 números saírem novamente é muito baixa.</p>
-                            <div class="bg-white dark:bg-gray-800 p-3 rounded border-l-4 border-green-500">
+                        <div class="space-y-3 text-pink-700 dark:text-pink-300">
+                            <p><strong>Conceito:</strong> Remove apenas os 6 números que saíram no último concurso.</p>
+                            <p><strong>Lógica:</strong> A chance dos mesmos 6 números saírem novamente é muito baixa.</p>
+                            <div class="bg-white dark:bg-gray-800 p-3 rounded border-l-4 border-pink-500">
                                 <p class="font-medium mb-2">Exemplo prático:</p>
-                                <p>• <span class="font-bold">1º Sorteio:</span> [05, 12, 23, 38, 45, 50]</p>
-                                <p>• <span class="font-bold">2º Sorteio:</span> [02, 15, 28, 33, 41, 47]</p>
-                                <p>• <span class="font-bold">Números eliminados:</span> 05, 12, 23, 38, 45, 50, 02, 15, 28, 33, 41, 47</p>
-                                <p>• <span class="font-bold">Disponíveis:</span> 38 números (1-50 exceto os 12 eliminados)</p>
-                                <p>• <span class="font-bold">Palpite gerado:</span> 2 jogos de 6 números cada dos 38 disponíveis</p>
+                                <p>• <span class="font-bold">Último concurso:</span> [05, 12, 23, 38, 45, 49]</p>
+                                <p>• <span class="font-bold">Números eliminados:</span> 05, 12, 23, 38, 45, 49</p>
+                                <p>• <span class="font-bold">Disponíveis para sorteio:</span> 44 números (1-50 exceto os 6 eliminados)</p>
+                                <p>• <span class="font-bold">Palpite gerado:</span> 6 números aleatórios dos 44 disponíveis</p>
                             </div>
                         </div>
                     </div>
@@ -803,11 +1007,12 @@
                             <div class="bg-white dark:bg-gray-800 p-3 rounded border-l-4 border-blue-500">
                                 <p class="font-medium mb-2">Fluxo completo:</p>
                                 <div class="space-y-2 text-sm">
-                                    <p>• <span class="font-bold text-red-600">Último concurso:</span> 12 números eliminados ❌</p>
-                                    <p>• <span class="font-bold text-green-600">1ª Sequência:</span> 38 disponíveis → 2 jogos de 6 números ❌</p>
-                                    <p>• <span class="font-bold text-green-600">2ª Sequência:</span> 26 disponíveis → 2 jogos de 6 números ❌</p>
-                                    <p>• <span class="font-bold text-green-600">3ª Sequência:</span> 14 disponíveis → 2 jogos de 6 números ❌</p>
-                                    <p>• <span class="font-bold text-orange-600">4ª+ Sequências:</span> Reinício automático quando restam poucos números</p>
+                                    <p>• <span class="font-bold text-red-600">Último concurso:</span> [05, 12, 23, 38, 45, 49] ❌</p>
+                                    <p>• <span class="font-bold text-pink-600">1ª Sequência:</span> 44 disponíveis → [02, 07, 19, 29, 41, 47] ❌</p>
+                                    <p>• <span class="font-bold text-pink-600">2ª Sequência:</span> 38 disponíveis → [01, 08, 16, 33, 44, 50] ❌</p>
+                                    <p>• <span class="font-bold text-pink-600">3ª Sequência:</span> 32 disponíveis → [03, 11, 25, 37, 43, 48] ❌</p>
+                                    <p>• <span class="font-bold text-orange-600">Sequências seguintes:</span> Continua até esgotar números</p>
+                                    <p>• <span class="font-bold text-purple-600">Reinício automático:</span> Quando restam menos de 6 números</p>
                                 </div>
                             </div>
                         </div>
@@ -819,32 +1024,34 @@
                             🎰 Estratégia 3: Eliminação Livre
                         </h3>
                         <div class="space-y-3 text-purple-700 dark:text-purple-300">
-                            <p><strong>Conceito:</strong> Remove apenas os 12 números do último concurso, mas permite repetição de números entre jogos.</p>
+                            <p><strong>Conceito:</strong> Remove apenas os 6 números do último concurso, mas permite repetição de números entre jogos.</p>
                             <p><strong>Lógica:</strong> Oferece maior variedade e permite fazer mais apostas com números favoritos.</p>
                             <div class="bg-white dark:bg-gray-800 p-3 rounded border-l-4 border-purple-500">
                                 <p class="font-medium mb-2">Exemplo prático:</p>
                                 <div class="space-y-2 text-sm">
-                                    <p>• <span class="font-bold text-red-600">Números eliminados:</span> 12 números dos últimos sorteios ❌</p>
-                                    <p>• <span class="font-bold">Disponíveis:</span> 38 números sempre fixos</p>
-                                    <p>• <span class="font-bold text-green-600">Jogo 1:</span> [01, 07, 19, 29, 31, 37] | [03, 09, 21, 25, 35, 39]</p>
-                                    <p>• <span class="font-bold text-green-600">Jogo 2:</span> [06, 07, 16, 29, 34, 40] | [08, 11, 21, 26, 35, 42] ✨ (permite repetição)</p>
-                                    <p>• <span class="font-bold text-green-600">Jogo N:</span> Sempre dos mesmos 38 números</p>
+                                    <p>• <span class="font-bold text-red-600">Último concurso:</span> [05, 12, 23, 38, 45, 49] ❌</p>
+                                    <p>• <span class="font-bold">Disponíveis:</span> 44 números sempre fixos</p>
+                                    <p>• <span class="font-bold text-pink-600">Jogo 1:</span> [01, 07, 19, 29, 41, 47]</p>
+                                    <p>• <span class="font-bold text-pink-600">Jogo 2:</span> [02, 07, 16, 29, 33, 44] ✨ (repete 07, 29)</p>
+                                    <p>• <span class="font-bold text-pink-600">Jogo 3:</span> [03, 11, 19, 25, 37, 43] ✨ (repete 19)</p>
+                                    <p>• <span class="font-bold text-pink-600">Jogo N:</span> Sempre dos mesmos 44 números</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Estatísticas -->
-                    <div class="rounded-lg p-4" style="background-color: #fde6eb; border: 1px solid #f798af;">
-                        <h3 class="text-xl font-bold mb-3" style="color: #660d2b;">
+                    <div class="bg-pink-50 dark:bg-pink-900 border border-pink-200 dark:border-pink-700 rounded-lg p-4">
+                        <h3 class="text-xl font-bold text-pink-800 dark:text-pink-200 mb-3">
                             📊 Base Estatística Dupla Sena
                         </h3>
-                        <div class="space-y-2" style="color: #821136;">
+                        <div class="text-pink-700 dark:text-pink-300 space-y-2">
                             <p>• <strong>Números totais:</strong> 50 (01 a 50)</p>
-                            <p>• <strong>Números por sorteio:</strong> 6 cada (total 12 por concurso)</p>
-                            <p>• <strong>Probabilidade de repetição total:</strong> Praticamente 0% (1 em milhões)</p>
-                            <p>• <strong>Dupla chance:</strong> Dois sorteios independentes aumentam as chances de premiação</p>
-                            <p>• <strong>Cobertura otimizada:</strong> Estratégia 2 cobre 76% dos números em 3 sequências</p>
+                            <p>• <strong>Números por jogo:</strong> 6</p>
+                            <p>• <strong>Sorteios por concurso:</strong> 2 (1º e 2º sorteio)</p>
+                            <p>• <strong>Probabilidade de repetição total:</strong> Praticamente 0% (1 em 15 milhões)</p>
+                            <p>• <strong>Repetições parciais:</strong> Histórico mostra baixa incidência de 3+ números</p>
+                            <p>• <strong>Cobertura otimizada:</strong> Estratégia 2 cobre 88% dos números em 7 jogos</p>
                         </div>
                     </div>
                 </div>
@@ -857,16 +1064,6 @@
                         ✅ Entendi, Vamos Gerar Palpites!
                     </button>
                 </div>
-            </div>
-        </div>
-
-        <!-- Informações Adicionais -->
-        <div id="infoAdicional" class="hidden mt-8 bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-700 rounded-lg p-6">
-            <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-200 mb-4">
-                📋 Informações do Concurso
-            </h3>
-            <div id="detalhes" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-blue-700 dark:text-blue-300">
-                <!-- Detalhes serão inseridos aqui -->
             </div>
         </div>
     </div>
@@ -898,8 +1095,6 @@
         const erroMsg = document.getElementById('erroMsg');
         const resultados = document.getElementById('resultados');
         const tabelaBody = document.getElementById('tabelaBody');
-        const infoAdicional = document.getElementById('infoAdicional');
-        const detalhes = document.getElementById('detalhes');
         const destacarPares = document.getElementById('destacarPares');
         const destacarImpares = document.getElementById('destacarImpares');
         const ordenarCrescente = document.getElementById('ordenarCrescente');
@@ -917,6 +1112,76 @@
         let sequenciaAtual = 1;
         let historicoPalpitesData = [];
 
+        // Variável para análise de ciclo por posição
+        let analiseCicloPorPosicao = {
+            1: {1: {}, 2: {}}, // Posição 1: sorteio 1 e 2
+            2: {1: {}, 2: {}}, // Posição 2: sorteio 1 e 2
+            3: {1: {}, 2: {}}, // Posição 3: sorteio 1 e 2
+            4: {1: {}, 2: {}}, // Posição 4: sorteio 1 e 2
+            5: {1: {}, 2: {}}, // Posição 5: sorteio 1 e 2
+            6: {1: {}, 2: {}}  // Posição 6: sorteio 1 e 2
+        };
+
+        let sorteioAtualAnalise = 1; // 1 para primeiro sorteio, 2 para segundo sorteio
+        let sorteioAtualAnaliseVisual = 1; // Para análise visual
+
+        // Função para atualizar informações do período do ciclo
+        function atualizarInfoPeriodoCiclo(concursoMaisAntigo, concursoMaisRecente, totalConcursos) {
+            const dadosDiv = document.getElementById('dadosPeriodo');
+            
+            const dataInicial = formatarData(concursoMaisAntigo.dataApuracao) || formatarData(concursoMaisAntigo.dataSorteio) || 'N/A';
+            const dataFinal = formatarData(concursoMaisRecente.dataApuracao) || formatarData(concursoMaisRecente.dataSorteio) || 'N/A';
+            
+            // Calcular duração em dias
+            let duracaoTexto = 'N/A';
+            try {
+                const dataInicialObj = new Date(concursoMaisAntigo.dataApuracao || concursoMaisAntigo.dataSorteio);
+                const dataFinalObj = new Date(concursoMaisRecente.dataApuracao || concursoMaisRecente.dataSorteio);
+                
+                if (!isNaN(dataInicialObj) && !isNaN(dataFinalObj)) {
+                    const diffTime = Math.abs(dataFinalObj - dataInicialObj);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    duracaoTexto = `${diffDays} dias`;
+                }
+            } catch (error) {
+                console.log('Erro ao calcular duração:', error);
+            }
+            
+            dadosDiv.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg">
+                        <div class="text-sm font-medium text-blue-700 dark:text-blue-300 mb-1">🚀 INÍCIO DO CICLO</div>
+                        <div class="text-lg font-bold text-blue-800 dark:text-blue-200">Concurso ${concursoMaisAntigo.numero}</div>
+                        <div class="text-sm text-blue-600 dark:text-blue-400">${dataInicial}</div>
+                    </div>
+                    
+                    <div class="bg-pink-50 dark:bg-pink-900/30 p-3 rounded-lg">
+                        <div class="text-sm font-medium text-pink-700 dark:text-pink-300 mb-1">🏁 FIM DO CICLO</div>
+                        <div class="text-lg font-bold text-pink-800 dark:text-pink-200">Concurso ${concursoMaisRecente.numero}</div>
+                        <div class="text-sm text-pink-600 dark:text-pink-400">${dataFinal}</div>
+                    </div>
+                    
+                    <div class="bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg">
+                        <div class="text-sm font-medium text-purple-700 dark:text-purple-300 mb-1">⏱️ DURAÇÃO</div>
+                        <div class="text-lg font-bold text-purple-800 dark:text-purple-200">${totalConcursos} concursos</div>
+                        <div class="text-sm text-purple-600 dark:text-purple-400">${duracaoTexto}</div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700 rounded-lg">
+                    <div class="text-center">
+                        <p class="text-sm text-yellow-800 dark:text-yellow-200">
+                            <strong>📊 Período do Ciclo Atual:</strong> 
+                            De <span class="font-bold">${dataInicial}</span> até <span class="font-bold">${dataFinal}</span>
+                        </p>
+                        <p class="text-xs text-yellow-700 dark:text-yellow-300 mt-1">
+                            O ciclo sempre analisa os <strong>últimos 60 concursos</strong> disponíveis na base de dados
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+
         // Função para formatar data
         function formatarData(dataStr) {
             if (!dataStr) return 'N/A';
@@ -927,19 +1192,17 @@
                 if (dataStr instanceof Date) {
                     data = dataStr;
                 } else if (typeof dataStr === 'string') {
-                    if (dataStr.includes('/')) {
+                    if (dataStr.includes('-')) {
+                        data = new Date(dataStr);
+                    } 
+                    else if (dataStr.includes('/')) {
                         const [dia, mes, ano] = dataStr.split('/');
                         data = new Date(ano, mes - 1, dia);
-                    } else if (dataStr.includes('-')) {
-                        data = new Date(dataStr);
-                    } else if (dataStr.length === 8 && !isNaN(dataStr)) {
-                        const dia = dataStr.substr(0, 2);
-                        const mes = dataStr.substr(2, 2);
-                        const ano = dataStr.substr(4, 4);
-                        data = new Date(ano, mes - 1, dia);
-                    } else if (!isNaN(dataStr)) {
+                    } 
+                    else if (!isNaN(dataStr)) {
                         data = new Date(parseInt(dataStr));
-                    } else {
+                    } 
+                    else {
                         data = new Date(dataStr);
                     }
                 } else {
@@ -993,14 +1256,14 @@
             // Estratégia 2: Busca sequencial reversa
             console.log('🔄 Iniciando busca sequencial reversa...');
             
-            for (let concurso = 2750; concurso >= 2700; concurso--) {
+            for (let concurso = 2700; concurso >= 2650; concurso--) {
                 try {
                     console.log(`🔍 Testando concurso ${concurso}...`);
                     const response = await fetch(`https://servicebus2.caixa.gov.br/portaldeloterias/api/duplasena/${concurso}`);
                     
                     if (response.ok) {
                         const data = await response.json();
-                        if (data && data.numero === concurso && data.dezenasSorteadasOrdemSorteio) {
+                        if (data && data.numero === concurso && data.listaDezenas) {
                             console.log(`🎯 ENCONTRADO! Último concurso válido: ${concurso}`);
                             return concurso;
                         }
@@ -1015,7 +1278,7 @@
             
             // Estratégia 3: Fallback
             console.log('⚠️ Todas as estratégias falharam, usando fallback...');
-            const ultimoConhecido = 2700;
+            const ultimoConhecido = 2680;
             console.log(`📌 Usando último concurso conhecido: ${ultimoConhecido}`);
             return ultimoConhecido;
         }
@@ -1036,6 +1299,224 @@
             loadingText.textContent = 'Carregamento cancelado';
         }
 
+        // FUNÇÃO: Análise de ciclo por posição (ÚLTIMOS 60 CONCURSOS)
+        function analisarCicloPorPosicao() {
+            console.log('🔄 INICIANDO análise de ciclo por posição para Dupla Sena...');
+            
+            // LIMPAR COMPLETAMENTE os contadores antes de iniciar
+            analiseCicloPorPosicao = {
+                1: {1: {}, 2: {}}, 2: {1: {}, 2: {}}, 3: {1: {}, 2: {}},
+                4: {1: {}, 2: {}}, 5: {1: {}, 2: {}}, 6: {1: {}, 2: {}}
+            };
+            
+            // Inicializar contadores zerados para cada posição e sorteio
+            for (let pos = 1; pos <= 6; pos++) {
+                for (let sorteio = 1; sorteio <= 2; sorteio++) {
+                    analiseCicloPorPosicao[pos][sorteio] = {};
+                    for (let num = 1; num <= 50; num++) {
+                        analiseCicloPorPosicao[pos][sorteio][num] = 0;
+                    }
+                }
+            }
+
+            console.log('✅ Contadores inicializados para Dupla Sena');
+
+            // FILTRAR E VALIDAR concursos antes de ordenar
+            const concursosValidos = todosResultados.filter(resultado => {
+                return resultado && 
+                       resultado.numero && 
+                       resultado.listaDezenas && 
+                       resultado.listaDezenas.length >= 2 &&
+                       resultado.listaDezenas[0] && 
+                       resultado.listaDezenas[1];
+            });
+
+            console.log(`📊 Total de concursos válidos: ${concursosValidos.length}`);
+
+            // PEGAR APENAS OS ÚLTIMOS 60 CONCURSOS (CICLO 01-50)
+            const ultimosConcursos = [...concursosValidos]
+                .sort((a, b) => b.numero - a.numero) // Ordenar por número decrescente (mais recentes primeiro)
+                .slice(0, 60); // Pegar apenas os 60 mais recentes
+
+            // Informações do período do ciclo
+            const concursoMaisRecente = ultimosConcursos[0];
+            const concursoMaisAntigo = ultimosConcursos[ultimosConcursos.length - 1];
+            
+            console.log(`🔄 Analisando ciclo dos últimos ${ultimosConcursos.length} concursos (Ciclo 01-50)`);
+            console.log(`📅 Período: Concurso ${concursoMaisAntigo.numero} até ${concursoMaisRecente.numero}`);
+
+            // Contar aparições por posição APENAS nos últimos 60 concursos
+            ultimosConcursos.forEach((resultado, indexConcurso) => {
+                // Primeiro sorteio
+                if (resultado.listaDezenas[0]) {
+                    const dezenas1 = resultado.listaDezenas[0].split('-');
+                    dezenas1.forEach((dezena, indexPosicao) => {
+                        const numero = parseInt(dezena);
+                        const posicao = indexPosicao + 1;
+                        
+                        if (numero >= 1 && numero <= 50 && posicao >= 1 && posicao <= 6) {
+                            analiseCicloPorPosicao[posicao][1][numero]++;
+                        }
+                    });
+                }
+                
+                // Segundo sorteio
+                if (resultado.listaDezenas[1]) {
+                    const dezenas2 = resultado.listaDezenas[1].split('-');
+                    dezenas2.forEach((dezena, indexPosicao) => {
+                        const numero = parseInt(dezena);
+                        const posicao = indexPosicao + 1;
+                        
+                        if (numero >= 1 && numero <= 50 && posicao >= 1 && posicao <= 6) {
+                            analiseCicloPorPosicao[posicao][2][numero]++;
+                        }
+                    });
+                }
+            });
+
+            // DEBUG: Verificar totais por posição e sorteio
+            for (let pos = 1; pos <= 6; pos++) {
+                for (let sorteio = 1; sorteio <= 2; sorteio++) {
+                    let totalNumerosComFrequencia = 0;
+                    let somaFrequencias = 0;
+                    for (let num = 1; num <= 50; num++) {
+                        if (analiseCicloPorPosicao[pos][sorteio][num] > 0) {
+                            totalNumerosComFrequencia++;
+                            somaFrequencias += analiseCicloPorPosicao[pos][sorteio][num];
+                        }
+                    }
+                    console.log(`🎯 Bola ${pos} - ${sorteio}º Sorteio: ${totalNumerosComFrequencia} números únicos, ${somaFrequencias} aparições totais`);
+                }
+            }
+
+            exibirAnaliseCicloPorPosicao(ultimosConcursos.length, concursoMaisAntigo, concursoMaisRecente);
+            
+            // Atualizar informações do período
+            atualizarInfoPeriodoCiclo(concursoMaisAntigo, concursoMaisRecente, ultimosConcursos.length);
+        }
+
+        function exibirAnaliseCicloPorPosicao(totalConcursosAnalisados, concursoMaisAntigo, concursoMaisRecente) {
+            atualizarExibicaoCiclo();
+        }
+
+        function atualizarExibicaoCiclo() {
+            const container = document.getElementById('cicloContainer');
+            const resumoContainer = document.getElementById('resumoCiclos');
+            
+            container.innerHTML = '';
+            resumoContainer.innerHTML = '';
+
+            for (let pos = 1; pos <= 6; pos++) {
+                const dadosPos = analiseCicloPorPosicao[pos][sorteioAtualAnalise];
+                
+                // Ordenar números por frequência
+                const numerosOrdenados = Object.entries(dadosPos)
+                    .map(([num, freq]) => ({numero: parseInt(num), frequencia: freq}))
+                    .sort((a, b) => b.frequencia - a.frequencia);
+
+                // Separar categorias
+                const maisSairam = numerosOrdenados.slice(0, 5);
+                const menosSairam = numerosOrdenados.slice(-5).reverse();
+                const nuncaSairam = numerosOrdenados.filter(item => item.frequencia === 0);
+                
+                // Calcular estatísticas
+                const totalNumeros = 50;
+                const numerosQueSairam = numerosOrdenados.filter(item => item.frequencia > 0).length;
+                const percentualCompleto = ((numerosQueSairam / totalNumeros) * 100).toFixed(1);
+
+                // Card da posição
+                const cardHTML = `
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-semibold mb-3 text-center text-gray-800 dark:text-white">🎯 Bola ${pos} - ${sorteioAtualAnalise}º Sorteio</h3>
+                        
+                        <div class="mb-4 text-center">
+                            <div class="text-2xl font-bold text-primary">${numerosQueSairam}/50</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Ciclo ${percentualCompleto}% completo</div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-sm font-semibold text-pink-600 dark:text-pink-400 mb-1">🔥 Mais saíram:</h4>
+                                <div class="flex flex-wrap gap-1">
+                                    ${maisSairam.map(item => `
+                                        <span class="px-2 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-200 text-xs rounded">
+                                            ${String(item.numero).padStart(2, '0')} (${item.frequencia}x)
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="text-sm font-semibold text-yellow-600 dark:text-yellow-400 mb-1">🔹 Menos saíram:</h4>
+                                <div class="flex flex-wrap gap-1">
+                                    ${menosSairam.map(item => `
+                                        <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 text-xs rounded">
+                                            ${String(item.numero).padStart(2, '0')} (${item.frequencia}x)
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            ${nuncaSairam.length > 0 ? `
+                                <div>
+                                    <h4 class="text-sm font-semibold text-red-600 dark:text-red-400 mb-1">❌ Nunca saíram (${nuncaSairam.length}):</h4>
+                                    <div class="flex flex-wrap gap-1 max-h-20 overflow-y-auto">
+                                        ${nuncaSairam.map(item => `
+                                            <span class="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 text-xs rounded">
+                                                ${String(item.numero).padStart(2, '0')}
+                                            </span>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            <!-- SEÇÃO: Números que faltam sair -->
+                            <div class="mt-3 p-3 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                                <h4 class="text-sm font-semibold text-orange-700 dark:text-orange-300 mb-2">
+                                    🎯 FALTAM SAIR (${nuncaSairam.length} números):
+                                </h4>
+                                ${nuncaSairam.length > 0 ? `
+                                    <div class="grid grid-cols-6 gap-1">
+                                        ${nuncaSairam.map(item => `
+                                            <span class="px-2 py-1 bg-orange-200 dark:bg-orange-800 text-orange-900 dark:text-orange-100 text-xs rounded text-center font-bold">
+                                                ${String(item.numero).padStart(2, '0')}
+                                            </span>
+                                        `).join('')}
+                                    </div>
+                                ` : `
+                                    <div class="text-center py-2">
+                                        <span class="text-pink-600 dark:text-pink-400 font-semibold">
+                                            ✅ CICLO COMPLETO! Todos os 50 números já saíram nesta posição nos últimos 60 concursos
+                                        </span>
+                                    </div>
+                                `}
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.innerHTML += cardHTML;
+
+                // Resumo para cada posição
+                const resumoHTML = `
+                    <div class="text-center">
+                        <div class="text-lg font-semibold text-gray-800 dark:text-white">Bola ${pos}</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">${numerosQueSairam}/50</div>
+                        <div class="text-xs text-primary">${percentualCompleto}%</div>
+                        ${nuncaSairam.length > 0 ? `<div class="text-xs text-red-500">Faltam: ${nuncaSairam.length}</div>` : ''}
+                    </div>
+                `;
+
+                resumoContainer.innerHTML += resumoHTML;
+            }
+
+            // Mostrar a seção
+            document.getElementById('analiseCicloPosicao').classList.remove('hidden');
+            
+            // Gerar seletores para o gerador de jogos por posição
+            gerarSeletoresPosicao();
+        }
+
         // FUNÇÃO PRINCIPAL: Carregar TODOS os concursos
         async function carregarTodosOsConcursos() {
             console.log('🚀 INICIANDO: Carregar TODOS os concursos da Dupla Sena...');
@@ -1043,7 +1524,6 @@
             loading.classList.remove('hidden');
             resultados.classList.add('hidden');
             erro.classList.add('hidden');
-            infoAdicional.classList.add('hidden');
             buscarBtn.disabled = true;
             carregamentoAtivo = true;
 
@@ -1111,6 +1591,7 @@
                 loadingText.textContent = `✅ SUCESSO! Carregados ${todosResultados.length} concursos (do primeiro ao último)`;
                 exibirTodosResultados();
                 gerarResumoEstatistico();
+                analisarCicloPorPosicao(); // Análise de ciclo por posição
                 inicializarGeradorPalpites();
                 
                 console.log(`🎉 CONCLUÍDO: ${todosResultados.length} concursos carregados com sucesso!`);
@@ -1149,22 +1630,15 @@
             return null;
         }
 
-        // 🎯 FUNÇÃO CORRIGIDA PARA CRIAR CÉLULA DE NÚMERO
-        function criarCelulaNumero(numero, sorteio) {
+        // Função para criar célula de número com destaque par/ímpar
+        function criarCelulaNumero(numero) {
             const cellNumero = document.createElement('td');
-            cellNumero.className = 'px-1 py-3 whitespace-nowrap text-center';
-            
-            const divNumero = document.createElement('div');
-            divNumero.textContent = numero.toString().padStart(2, '0'); // Sempre com 2 dígitos (01, 02, etc.)
-            divNumero.dataset.numero = numero;
-            
-            // Adicionar classe do sorteio
-            divNumero.classList.add(`sorteio-${sorteio}`);
+            cellNumero.className = 'px-2 py-4 whitespace-nowrap text-center text-sm font-medium text-gray-900 dark:text-white';
+            cellNumero.textContent = numero;
+            cellNumero.dataset.numero = numero;
 
-            // Aplicar cores baseado em par/ímpar
-            aplicarDestaque(divNumero, parseInt(numero));
+            aplicarDestaque(cellNumero, numero);
 
-            cellNumero.appendChild(divNumero);
             return cellNumero;
         }
 
@@ -1180,21 +1654,33 @@
         }
 
         // Função para calcular estatísticas par/ímpar
-        function calcularEstatisticasParImpar(numeros) {
-            if (!numeros || !Array.isArray(numeros)) {
+        function calcularEstatisticasParImpar(numeros1, numeros2) {
+            if (!numeros1 || !Array.isArray(numeros1)) {
                 return { pares: 0, impares: 0, texto: 'N/A' };
             }
             
             let pares = 0;
             let impares = 0;
             
-            numeros.forEach(numero => {
-                if (parseInt(numero) % 2 === 0) {
+            // Primeiro sorteio
+            numeros1.forEach(numero => {
+                if (numero % 2 === 0) {
                     pares++;
                 } else {
                     impares++;
                 }
             });
+            
+            // Segundo sorteio (se existir)
+            if (numeros2 && Array.isArray(numeros2)) {
+                numeros2.forEach(numero => {
+                    if (numero % 2 === 0) {
+                        pares++;
+                    } else {
+                        impares++;
+                    }
+                });
+            }
             
             return { 
                 pares, 
@@ -1204,7 +1690,7 @@
             };
         }
 
-        // 🎯 FUNÇÃO CORRIGIDA PARA EXIBIR RESULTADOS COM EXATAMENTE 6 NÚMEROS POR SORTEIO
+        // Função para exibir todos os resultados na tabela
         function exibirTodosResultados() {
             tabelaBody.innerHTML = '';
 
@@ -1223,13 +1709,13 @@
 
                 // Número do concurso
                 const cellConcurso = document.createElement('td');
-                cellConcurso.className = 'px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white';
+                cellConcurso.className = 'px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white';
                 cellConcurso.textContent = data.numero;
                 row.appendChild(cellConcurso);
 
                 // Data do sorteio
                 const cellData = document.createElement('td');
-                cellData.className = 'px-3 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300';
+                cellData.className = 'px-3 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300';
                 
                 const dataFormatada = formatarData(data.dataApuracao) || 
                                     formatarData(data.dataSorteio) || 
@@ -1239,122 +1725,71 @@
                 cellData.textContent = dataFormatada;
                 row.appendChild(cellData);
 
-                // 🎯 1º SORTEIO - GARANTIR EXATAMENTE 6 NÚMEROS
-                if (data.dezenasSorteadasOrdemSorteio && Array.isArray(data.dezenasSorteadasOrdemSorteio)) {
-                    let primeiraSena = [...data.dezenasSorteadasOrdemSorteio];
-                    
-                    // 🔥 GARANTIR QUE SÃO EXATAMENTE 6 NÚMEROS
-                    if (primeiraSena.length > 6) {
-                        console.warn(`Concurso ${data.numero}: 1º sorteio tem ${primeiraSena.length} números, limitando a 6`);
-                        primeiraSena = primeiraSena.slice(0, 6);
-                    }
-                    
+                // Primeiro sorteio (6 números)
+                if (data.listaDezenas && data.listaDezenas[0]) {
+                    let numeros1 = data.listaDezenas[0].split('-').map(n => parseInt(n));
                     if (ordenarCrescente.checked) {
-                        primeiraSena.sort((a, b) => parseInt(a) - parseInt(b));
+                        numeros1.sort((a, b) => a - b);
                     }
                     
-                    // Sempre criar exatamente 6 células para o 1º sorteio
-                    for (let i = 0; i < 6; i++) {
-                        if (i < primeiraSena.length && primeiraSena[i]) {
-                            const cellNumero = criarCelulaNumero(primeiraSena[i], 1);
-                            cellNumero.dataset.sorteio = '1';
-                            cellNumero.dataset.posicao = i + 1;
-                            row.appendChild(cellNumero);
-                        } else {
-                            // Criar célula vazia se não tiver número suficiente
-                            const cellVazia = document.createElement('td');
-                            cellVazia.className = 'px-1 py-3 whitespace-nowrap text-center';
-                            cellVazia.dataset.sorteio = '1';
-                            cellVazia.dataset.posicao = i + 1;
-                            cellVazia.innerHTML = '<div class="w-10 h-10 border border-gray-300 rounded-full bg-gray-50"></div>';
-                            row.appendChild(cellVazia);
-                        }
-                    }
+                    numeros1.forEach((numero, index) => {
+                        const cellNumero = criarCelulaNumero(numero);
+                        cellNumero.dataset.coluna = `1_${index + 1}`;
+                        row.appendChild(cellNumero);
+                    });
                 } else {
-                    // Se não tiver dados, criar 6 células vazias
+                    // Adicionar células vazias se não houver dados
                     for (let i = 0; i < 6; i++) {
                         const cellVazia = document.createElement('td');
-                        cellVazia.className = 'px-1 py-3 whitespace-nowrap text-center';
-                        cellVazia.dataset.sorteio = '1';
-                        cellVazia.dataset.posicao = i + 1;
-                        cellVazia.innerHTML = '<div class="w-10 h-10 border border-gray-300 rounded-full bg-gray-50"></div>';
+                        cellVazia.className = 'px-2 py-4 whitespace-nowrap text-center text-sm text-gray-500';
+                        cellVazia.textContent = '-';
                         row.appendChild(cellVazia);
                     }
                 }
 
-                // Separador visual
-                const cellSeparador = document.createElement('td');
-                cellSeparador.className = 'px-0 py-3 w-1 separador-sorteios';
-                row.appendChild(cellSeparador);
-
-                // 🎯 2º SORTEIO - GARANTIR EXATAMENTE 6 NÚMEROS
-                if (data.listaDezenasSegundoSorteio && Array.isArray(data.listaDezenasSegundoSorteio)) {
-                    let segundaSena = [...data.listaDezenasSegundoSorteio];
-                    
-                    // 🔥 GARANTIR QUE SÃO EXATAMENTE 6 NÚMEROS
-                    if (segundaSena.length > 6) {
-                        console.warn(`Concurso ${data.numero}: 2º sorteio tem ${segundaSena.length} números, limitando a 6`);
-                        segundaSena = segundaSena.slice(0, 6);
-                    }
-                    
+                // Segundo sorteio (6 números)
+                if (data.listaDezenas && data.listaDezenas[1]) {
+                    let numeros2 = data.listaDezenas[1].split('-').map(n => parseInt(n));
                     if (ordenarCrescente.checked) {
-                        segundaSena.sort((a, b) => parseInt(a) - parseInt(b));
+                        numeros2.sort((a, b) => a - b);
                     }
                     
-                    // Sempre criar exatamente 6 células para o 2º sorteio
-                    for (let i = 0; i < 6; i++) {
-                        if (i < segundaSena.length && segundaSena[i]) {
-                            const cellNumero = criarCelulaNumero(segundaSena[i], 2);
-                            cellNumero.dataset.sorteio = '2';
-                            cellNumero.dataset.posicao = i + 1;
-                            row.appendChild(cellNumero);
-                        } else {
-                            // Criar célula vazia se não tiver número suficiente
-                            const cellVazia = document.createElement('td');
-                            cellVazia.className = 'px-1 py-3 whitespace-nowrap text-center';
-                            cellVazia.dataset.sorteio = '2';
-                            cellVazia.dataset.posicao = i + 1;
-                            cellVazia.innerHTML = '<div class="w-10 h-10 border border-gray-300 rounded-full bg-gray-50"></div>';
-                            row.appendChild(cellVazia);
-                        }
-                    }
+                    numeros2.forEach((numero, index) => {
+                        const cellNumero = criarCelulaNumero(numero);
+                        cellNumero.dataset.coluna = `2_${index + 1}`;
+                        row.appendChild(cellNumero);
+                    });
                 } else {
-                    // Se não tiver dados, criar 6 células vazias
+                    // Adicionar células vazias se não houver dados
                     for (let i = 0; i < 6; i++) {
                         const cellVazia = document.createElement('td');
-                        cellVazia.className = 'px-1 py-3 whitespace-nowrap text-center';
-                        cellVazia.dataset.sorteio = '2';
-                        cellVazia.dataset.posicao = i + 1;
-                        cellVazia.innerHTML = '<div class="w-10 h-10 border border-gray-300 rounded-full bg-gray-50"></div>';
+                        cellVazia.className = 'px-2 py-4 whitespace-nowrap text-center text-sm text-gray-500';
+                        cellVazia.textContent = '-';
                         row.appendChild(cellVazia);
                     }
                 }
 
-                // Estatísticas Par/Ímpar (total dos dois sorteios)
+                // Estatísticas Par/Ímpar (considerando ambos os sorteios)
                 const cellEstatisticas = document.createElement('td');
-                cellEstatisticas.className = 'px-3 py-3 whitespace-nowrap text-center';
+                cellEstatisticas.className = 'px-3 py-4 whitespace-nowrap text-center';
                 
-                const primeiros = (data.dezenasSorteadasOrdemSorteio || []).slice(0, 6);
-                const segundos = (data.listaDezenasSegundoSorteio || []).slice(0, 6);
+                const numeros1 = data.listaDezenas && data.listaDezenas[0] ? data.listaDezenas[0].split('-').map(n => parseInt(n)) : [];
+                const numeros2 = data.listaDezenas && data.listaDezenas[1] ? data.listaDezenas[1].split('-').map(n => parseInt(n)) : [];
                 
-                // 🔥 GARANTIR MÁXIMO 6 NÚMEROS DE CADA SORTEIO PARA ESTATÍSTICAS
-                const todosNumeros = [...primeiros, ...segundos];
-                
-                const stats = calcularEstatisticasParImpar(todosNumeros);
+                const stats = calcularEstatisticasParImpar(numeros1, numeros2);
                 const spanStats = document.createElement('span');
                 spanStats.className = 'inline-flex items-center px-2 py-1 text-xs font-bold rounded-full';
                 
-                // Cores baseadas na maioria
                 if (stats.maioria === 'pares') {
                     spanStats.className += ' bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
                 } else if (stats.maioria === 'impares') {
                     spanStats.className += ' bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200';
                 } else {
-                    spanStats.className += ' bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200';
+                    spanStats.className += ' bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
                 }
                 
                 spanStats.textContent = stats.texto;
-                spanStats.title = `${stats.pares} números pares e ${stats.impares} números ímpares (ambos sorteios)`;
+                spanStats.title = `${stats.pares} números pares e ${stats.impares} números ímpares (ambos os sorteios)`;
                 
                 cellEstatisticas.appendChild(spanStats);
                 row.appendChild(cellEstatisticas);
@@ -1369,14 +1804,18 @@
 
         // Função para aplicar filtros
         function aplicarFiltros() {
-            const filtros1 = []; // 1º sorteio
-            const filtros2 = []; // 2º sorteio
+            const filtros = {};
             
+            // Coletar filtros do primeiro sorteio
             for (let i = 1; i <= 6; i++) {
-                const filtro1 = document.getElementById(`filtro1_${i}`).value.trim();
-                const filtro2 = document.getElementById(`filtro2_${i}`).value.trim();
-                filtros1.push(filtro1);
-                filtros2.push(filtro2);
+                const filtro = document.getElementById(`filtro1_${i}`).value.trim();
+                filtros[`1_${i}`] = filtro;
+            }
+            
+            // Coletar filtros do segundo sorteio
+            for (let i = 1; i <= 6; i++) {
+                const filtro = document.getElementById(`filtro2_${i}`).value.trim();
+                filtros[`2_${i}`] = filtro;
             }
 
             const rows = tabelaBody.querySelectorAll('tr');
@@ -1385,33 +1824,17 @@
             rows.forEach(row => {
                 let mostrar = true;
                 
-                // Verificar filtros do 1º sorteio
-                filtros1.forEach((filtro, index) => {
+                Object.entries(filtros).forEach(([coluna, filtro]) => {
                     if (filtro) {
-                        const celulas = row.querySelectorAll(`td[data-sorteio="1"][data-posicao="${index + 1}"]`);
-                        if (celulas.length > 0) {
-                            const numeroElement = celulas[0].querySelector('[data-numero]');
-                            if (numeroElement) {
-                                const numero = numeroElement.textContent.trim();
-                                if (!numero.includes(filtro)) {
-                                    mostrar = false;
-                                }
-                            }
-                        }
-                    }
-                });
-                
-                // Verificar filtros do 2º sorteio
-                filtros2.forEach((filtro, index) => {
-                    if (filtro && mostrar) {
-                        const celulas = row.querySelectorAll(`td[data-sorteio="2"][data-posicao="${index + 1}"]`);
-                        if (celulas.length > 0) {
-                            const numeroElement = celulas[0].querySelector('[data-numero]');
-                            if (numeroElement) {
-                                const numero = numeroElement.textContent.trim();
-                                if (!numero.includes(filtro)) {
-                                    mostrar = false;
-                                }
+                        const celula = row.querySelector(`td[data-coluna="${coluna}"]`);
+                        if (celula) {
+                            const numero = celula.textContent.trim();
+                            const numerosFiltro = filtro.split(',').map(n => n.trim());
+                            const encontrou = numerosFiltro.some(nf => {
+                                return numero === nf || numero.includes(nf);
+                            });
+                            if (!encontrou) {
+                                mostrar = false;
                             }
                         }
                     }
@@ -1438,7 +1861,7 @@
 
         // Função para atualizar destaques
         function atualizarDestaques() {
-            const numeros = document.querySelectorAll('[data-numero]');
+            const numeros = document.querySelectorAll('td[data-numero]');
             numeros.forEach(elemento => {
                 const numero = parseInt(elemento.dataset.numero);
                 aplicarDestaque(elemento, numero);
@@ -1449,12 +1872,16 @@
         buscarBtn.addEventListener('click', carregarTodosOsConcursos);
         cancelarBtn.addEventListener('click', cancelarCarregamento);
         
-        // Event listeners para filtros
-        for (let s = 1; s <= 2; s++) {
-            for (let i = 1; i <= 6; i++) {
-                const filtro = document.getElementById(`filtro${s}_${i}`);
-                filtro.addEventListener('input', aplicarFiltros);
-            }
+        // Event listeners para filtros do primeiro sorteio
+        for (let i = 1; i <= 6; i++) {
+            const filtro = document.getElementById(`filtro1_${i}`);
+            filtro.addEventListener('input', aplicarFiltros);
+        }
+        
+        // Event listeners para filtros do segundo sorteio
+        for (let i = 1; i <= 6; i++) {
+            const filtro = document.getElementById(`filtro2_${i}`);
+            filtro.addEventListener('input', aplicarFiltros);
         }
 
         destacarPares.addEventListener('change', atualizarDestaques);
@@ -1481,6 +1908,68 @@
             if (e.key === 'Enter') carregarTodosOsConcursos();
         });
 
+        // Event listeners para botões de sorteio na análise de ciclo
+        document.getElementById('btnPrimeiroSorteio').addEventListener('click', () => {
+            sorteioAtualAnalise = 1;
+            atualizarBotoesSorteio();
+            atualizarExibicaoCiclo();
+        });
+
+        document.getElementById('btnSegundoSorteio').addEventListener('click', () => {
+            sorteioAtualAnalise = 2;
+            atualizarBotoesSorteio();
+            atualizarExibicaoCiclo();
+        });
+
+        // Event listeners para botões de sorteio na análise visual
+        document.getElementById('btnAnalise1Sorteio').addEventListener('click', () => {
+            sorteioAtualAnaliseVisual = 1;
+            atualizarBotoesAnaliseVisual();
+            const jogos = parseInt(document.getElementById('jogosAnalisar').value) || 30;
+            gerarAnaliseVisual(jogos);
+        });
+
+        document.getElementById('btnAnalise2Sorteio').addEventListener('click', () => {
+            sorteioAtualAnaliseVisual = 2;
+            atualizarBotoesAnaliseVisual();
+            const jogos = parseInt(document.getElementById('jogosAnalisar').value) || 30;
+            gerarAnaliseVisual(jogos);
+        });
+
+        function atualizarBotoesSorteio() {
+            const btn1 = document.getElementById('btnPrimeiroSorteio');
+            const btn2 = document.getElementById('btnSegundoSorteio');
+            
+            if (sorteioAtualAnalise === 1) {
+                btn1.classList.add('bg-blue-500', 'text-white');
+                btn1.classList.remove('bg-white', 'text-gray-900');
+                btn2.classList.add('bg-white', 'text-gray-900');
+                btn2.classList.remove('bg-blue-500', 'text-white');
+            } else {
+                btn2.classList.add('bg-blue-500', 'text-white');
+                btn2.classList.remove('bg-white', 'text-gray-900');
+                btn1.classList.add('bg-white', 'text-gray-900');
+                btn1.classList.remove('bg-blue-500', 'text-white');
+            }
+        }
+
+        function atualizarBotoesAnaliseVisual() {
+            const btn1 = document.getElementById('btnAnalise1Sorteio');
+            const btn2 = document.getElementById('btnAnalise2Sorteio');
+            
+            if (sorteioAtualAnaliseVisual === 1) {
+                btn1.classList.add('bg-blue-500', 'text-white');
+                btn1.classList.remove('bg-white', 'text-gray-900');
+                btn2.classList.add('bg-white', 'text-gray-900');
+                btn2.classList.remove('bg-blue-500', 'text-white');
+            } else {
+                btn2.classList.add('bg-blue-500', 'text-white');
+                btn2.classList.remove('bg-white', 'text-gray-900');
+                btn1.classList.add('bg-white', 'text-gray-900');
+                btn1.classList.remove('bg-blue-500', 'text-white');
+            }
+        }
+
         // Função para gerar resumo estatístico
         function gerarResumoEstatistico() {
             if (todosResultados.length === 0) return;
@@ -1488,7 +1977,6 @@
             const resumoDiv = document.getElementById('resumoEstatistico');
             const estatisticasDiv = document.getElementById('estatisticasGerais');
             const graficoDiv = document.getElementById('graficoBarras');
-            const dadosSorteios = document.getElementById('dadosSorteios');
             const padroesDiv = document.getElementById('padroes');
 
             // Calcular estatísticas
@@ -1497,11 +1985,10 @@
             const padroesCombinacoes = {};
 
             todosResultados.forEach(resultado => {
-                const primeiros = (resultado.dezenasSorteadasOrdemSorteio || []).slice(0, 6);
-                const segundos = (resultado.listaDezenasSegundoSorteio || []).slice(0, 6);
-                const todosNumeros = [...primeiros, ...segundos];
+                const numeros1 = resultado.listaDezenas && resultado.listaDezenas[0] ? resultado.listaDezenas[0].split('-').map(n => parseInt(n)) : [];
+                const numeros2 = resultado.listaDezenas && resultado.listaDezenas[1] ? resultado.listaDezenas[1].split('-').map(n => parseInt(n)) : [];
                 
-                const stats = calcularEstatisticasParImpar(todosNumeros);
+                const stats = calcularEstatisticasParImpar(numeros1, numeros2);
                 totalPares += stats.pares;
                 totalImpares += stats.impares;
 
@@ -1526,23 +2013,23 @@
                     <div class="text-sm font-semibold text-blue-800 dark:text-blue-200">Maioria Pares</div>
                     <div class="text-xs text-blue-600 dark:text-blue-400">${percPares}%</div>
                 </div>
-                <div class="p-4 rounded-lg text-center" style="background-color: #fde6eb;">
-                    <div class="text-2xl font-bold" style="color: #ba184a;">${concursosMaioriaImpares}</div>
-                    <div class="text-sm" style="color: #660d2b;">Concursos com</div>
-                    <div class="text-sm font-semibold" style="color: #660d2b;">Maioria Ímpares</div>
-                    <div class="text-xs" style="color: #821136;">${percImpares}%</div>
+                <div class="bg-pink-50 dark:bg-pink-900 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-pink-600 dark:text-pink-300">${concursosMaioriaImpares}</div>
+                    <div class="text-sm text-pink-800 dark:text-pink-200">Concursos com</div>
+                    <div class="text-sm font-semibold text-pink-800 dark:text-pink-200">Maioria Ímpares</div>
+                    <div class="text-xs text-pink-600 dark:text-pink-400">${percImpares}%</div>
                 </div>
-                <div class="bg-purple-50 dark:bg-purple-900 p-4 rounded-lg text-center">
-                    <div class="text-2xl font-bold text-purple-600 dark:text-purple-300">${concursosEquilibrados}</div>
-                    <div class="text-sm text-purple-800 dark:text-purple-200">Concursos</div>
-                    <div class="text-sm font-semibold text-purple-800 dark:text-purple-200">Equilibrados</div>
-                    <div class="text-xs text-purple-600 dark:text-purple-400">${percEquilibrados}%</div>
+                <div class="bg-yellow-50 dark:bg-yellow-900 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-yellow-600 dark:text-yellow-300">${concursosEquilibrados}</div>
+                    <div class="text-sm text-yellow-800 dark:text-yellow-200">Concursos</div>
+                    <div class="text-sm font-semibold text-yellow-800 dark:text-yellow-200">Equilibrados</div>
+                    <div class="text-xs text-yellow-600 dark:text-yellow-400">${percEquilibrados}%</div>
                 </div>
-                <div class="p-4 rounded-lg text-center" style="background-color: #fcd9e1;">
-                    <div class="text-lg font-bold" style="color: #ba184a;">${totalPares}P / ${totalImpares}I</div>
-                    <div class="text-sm" style="color: #660d2b;">Total de</div>
-                    <div class="text-sm font-semibold" style="color: #660d2b;">Números Sorteados</div>
-                    <div class="text-xs" style="color: #821136;">${totalConcursos} concursos</div>
+                <div class="bg-pink-50 dark:bg-pink-900 p-4 rounded-lg text-center">
+                    <div class="text-lg font-bold text-pink-600 dark:text-pink-300">${totalPares}P / ${totalImpares}I</div>
+                    <div class="text-sm text-pink-800 dark:text-pink-200">Total de</div>
+                    <div class="text-sm font-semibold text-pink-800 dark:text-pink-200">Números Sorteados</div>
+                    <div class="text-xs text-pink-600 dark:text-pink-400">${totalConcursos} concursos</div>
                 </div>
             `;
 
@@ -1560,7 +2047,7 @@
                 <div class="flex items-center">
                     <div class="w-20 text-sm text-gray-600 dark:text-gray-400">Maioria Ímpares:</div>
                     <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-6 mx-3">
-                        <div class="h-6 rounded-full flex items-center justify-end pr-2" style="background-color: #ba184a; width: ${(concursosMaioriaImpares/maxValor)*100}%">
+                        <div class="bg-pink-500 h-6 rounded-full flex items-center justify-end pr-2" style="width: ${(concursosMaioriaImpares/maxValor)*100}%">
                             <span class="text-xs text-white font-bold">${concursosMaioriaImpares}</span>
                         </div>
                     </div>
@@ -1568,54 +2055,8 @@
                 <div class="flex items-center">
                     <div class="w-20 text-sm text-gray-600 dark:text-gray-400">Equilibrados:</div>
                     <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-6 mx-3">
-                        <div class="bg-purple-500 h-6 rounded-full flex items-center justify-end pr-2" style="width: ${(concursosEquilibrados/maxValor)*100}%">
+                        <div class="bg-yellow-500 h-6 rounded-full flex items-center justify-end pr-2" style="width: ${(concursosEquilibrados/maxValor)*100}%">
                             <span class="text-xs text-white font-bold">${concursosEquilibrados}</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            // Comparação entre sorteios
-            let stats1 = { pares: 0, impares: 0 };
-            let stats2 = { pares: 0, impares: 0 };
-            
-            todosResultados.forEach(resultado => {
-                if (resultado.dezenasSorteadasOrdemSorteio) {
-                    const s1 = calcularEstatisticasParImpar(resultado.dezenasSorteadasOrdemSorteio.slice(0, 6));
-                    stats1.pares += s1.pares;
-                    stats1.impares += s1.impares;
-                }
-                if (resultado.listaDezenasSegundoSorteio) {
-                    const s2 = calcularEstatisticasParImpar(resultado.listaDezenasSegundoSorteio.slice(0, 6));
-                    stats2.pares += s2.pares;
-                    stats2.impares += s2.impares;
-                }
-            });
-
-            dadosSorteios.innerHTML = `
-                <div class="primeiro-sorteio p-4 rounded-lg">
-                    <h5 class="font-bold mb-3 text-center" style="color: #660d2b;">🎯 1º Sorteio</h5>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-blue-600">${stats1.pares}</div>
-                            <div class="text-sm text-blue-800">Pares</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold" style="color: #ba184a;">${stats1.impares}</div>
-                            <div class="text-sm" style="color: #660d2b;">Ímpares</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="segundo-sorteio p-4 rounded-lg">
-                    <h5 class="font-bold mb-3 text-center" style="color: #660d2b;">🎲 2º Sorteio</h5>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-blue-600">${stats2.pares}</div>
-                            <div class="text-sm text-blue-800">Pares</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold" style="color: #ba184a;">${stats2.impares}</div>
-                            <div class="text-sm" style="color: #660d2b;">Ímpares</div>
                         </div>
                     </div>
                 </div>
@@ -1638,7 +2079,6 @@
             });
             padroesMaisComuns += '</div>';
 
-            // Análises e insights
             let insights = '';
             if (concursosMaioriaPares > concursosMaioriaImpares) {
                 const diferenca = concursosMaioriaPares - concursosMaioriaImpares;
@@ -1655,121 +2095,196 @@
                 insights += `<p><strong>📊 Padrão mais comum:</strong> ${padraoMaisComum[0]} apareceu em ${padraoMaisComum[1]} concursos (${((padraoMaisComum[1]/totalConcursos)*100).toFixed(1)}%).</p>`;
             }
 
-            insights += `<p><strong>🎯 Dupla Sena:</strong> Cada sorteio tem exatamente 6 números únicos (1-50), oferecendo dupla chance de premiação.</p>`;
+            if (concursosEquilibrados > 0) {
+                insights += `<p><strong>⚖️ Concursos equilibrados:</strong> ${concursosEquilibrados} concursos tiveram exatamente a mesma quantidade de pares e ímpares (ambos os sorteios).</p>`;
+            }
 
             padroesDiv.innerHTML = padroesMaisComuns + insights;
 
-            // Gerar análise visual
-            const jogos = parseInt(document.getElementById('jogosAnalisar').value) || 50;
-            if (todosResultados.length >= jogos) {
-                gerarAnaliseVisual(jogos);
+            // Gerar análise visual apenas quando "Ordenar dezenas crescente" está desmarcado
+            if (!ordenarCrescente.checked) {
+                const jogos = parseInt(document.getElementById('jogosAnalisar').value) || 30;
+                if (todosResultados.length >= jogos) {
+                    gerarAnaliseVisual(jogos);
+                }
+            } else {
+                document.getElementById('analiseVisual').classList.add('hidden');
             }
 
             resumoDiv.classList.remove('hidden');
         }
 
-        // Função para gerar análise visual
-        function gerarAnaliseVisual(jogosAnalisar = 50) {
-            if (todosResultados.length < jogosAnalisar) return;
+        // Função para gerar análise visual dos números que saíram por posição
+        function gerarAnaliseVisual(jogosAnalisar = 30) {
+            if (todosResultados.length < jogosAnalisar) {
+                return;
+            }
 
+            // Pegar os últimos X concursos ordenados por número (mais recentes)
             const ultimosConcursos = [...todosResultados]
                 .sort((a, b) => b.numero - a.numero)
                 .slice(0, jogosAnalisar);
 
-            // Analisar 1º sorteio
-            const numeros1 = new Set();
-            ultimosConcursos.forEach(concurso => {
-                if (concurso.dezenasSorteadasOrdemSorteio) {
-                    concurso.dezenasSorteadasOrdemSorteio.slice(0, 6).forEach(num => {
-                        numeros1.add(parseInt(num));
-                    });
-                }
-            });
-
-            // Analisar 2º sorteio
-            const numeros2 = new Set();
-            ultimosConcursos.forEach(concurso => {
-                if (concurso.listaDezenasSegundoSorteio) {
-                    concurso.listaDezenasSegundoSorteio.slice(0, 6).forEach(num => {
-                        numeros2.add(parseInt(num));
-                    });
-                }
-            });
-
-            // Gerar tabela para 1º sorteio
-            let html1 = `
-                <thead style="background-color: #fcd9e1;">
-                    <tr><th colspan="10" class="text-center text-xs font-bold py-2" style="color: #660d2b;">🎯 Números que saíram no 1º Sorteio</th></tr>
-                    <tr>`;
+            // Analisar quais números apareceram em cada posição do sorteio selecionado
+            const numerosQueApareceram = {};
             
-            for (let i = 1; i <= 10; i++) {
-                html1 += `<th class="px-1 py-1 text-center text-xs font-bold border" style="border-color: #f798af;">${i}</th>`;
-            }
-            html1 += `</tr></thead><tbody>`;
-            
-            for (let linha = 0; linha < 5; linha++) {
-                html1 += '<tr>';
-                for (let col = 0; col < 10; col++) {
-                    const num = linha * 10 + col + 1;
-                    const saiu = numeros1.has(num);
-                    html1 += `<td class="px-1 py-1 text-center border text-xs font-bold" style="border-color: #f798af; ${saiu ? 'background-color: #ba184a; color: white;' : ''}">${saiu ? num : ''}</td>`;
-                }
-                html1 += '</tr>';
-            }
-            html1 += '</tbody>';
-            document.getElementById('tabelaAnalise1').innerHTML = html1;
-            document.getElementById('resumoAnalise1').textContent = `${numeros1.size}/50 números saíram`;
-
-            // Gerar tabela para 2º sorteio
-            let html2 = `
-                <thead style="background-color: #e1c9f7;">
-                    <tr><th colspan="10" class="text-center text-xs font-bold py-2" style="color: #4a1a5b;">🎲 Números que saíram no 2º Sorteio</th></tr>
-                    <tr>`;
-            
-            for (let i = 1; i <= 10; i++) {
-                html2 += `<th class="px-1 py-1 text-center text-xs font-bold border" style="border-color: #7c3aed;">${i}</th>`;
-            }
-            html2 += `</tr></thead><tbody>`;
-            
-            for (let linha = 0; linha < 5; linha++) {
-                html2 += '<tr>';
-                for (let col = 0; col < 10; col++) {
-                    const num = linha * 10 + col + 1;
-                    const saiu = numeros2.has(num);
-                    html2 += `<td class="px-1 py-1 text-center border text-xs font-bold" style="border-color: #7c3aed; ${saiu ? 'background-color: #7c3aed; color: white;' : ''}">${saiu ? num : ''}</td>`;
-                }
-                html2 += '</tr>';
-            }
-            html2 += '</tbody>';
-            document.getElementById('tabelaAnalise2').innerHTML = html2;
-            document.getElementById('resumoAnalise2').textContent = `${numeros2.size}/50 números saíram`;
-
-            // Números que não saíram
-            const naoSairam1 = [];
-            const naoSairam2 = [];
-            for (let i = 1; i <= 50; i++) {
-                if (!numeros1.has(i)) naoSairam1.push(i);
-                if (!numeros2.has(i)) naoSairam2.push(i);
+            // Para cada posição (Bola 1-6)
+            for (let pos = 1; pos <= 6; pos++) {
+                numerosQueApareceram[pos] = new Set();
+                
+                ultimosConcursos.forEach((concurso) => {
+                    if (concurso.listaDezenas && 
+                        concurso.listaDezenas[sorteioAtualAnaliseVisual - 1]) {
+                        
+                        const numeros = concurso.listaDezenas[sorteioAtualAnaliseVisual - 1].split('-');
+                        if (numeros[pos - 1]) {
+                            const numero = parseInt(numeros[pos - 1]);
+                            numerosQueApareceram[pos].add(numero);
+                        }
+                    }
+                });
             }
 
-            document.getElementById('numerosNaoSairam').innerHTML = `
-                <div class="bg-white dark:bg-gray-800 p-3 rounded border-l-4 border-primary">
-                    <h6 class="font-bold mb-2" style="color: #ba184a;">🎯 1º Sorteio - Não saíram:</h6>
-                    <div class="text-sm text-gray-700 dark:text-gray-300">${naoSairam1.join(', ') || 'Todos saíram'}</div>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-3 rounded border-l-4 border-purple-500">
-                    <h6 class="font-bold mb-2 text-purple-800 dark:text-purple-200">🎲 2º Sorteio - Não saíram:</h6>
-                    <div class="text-sm text-gray-700 dark:text-gray-300">${naoSairam2.join(', ') || 'Todos saíram'}</div>
-                </div>
+            // Gerar tabela verde - Números que SAÍRAM
+            const tabela = document.getElementById('tabelaAnaliseVisual');
+            
+            let html = `
+                <thead class="bg-pink-200 dark:bg-pink-800">
+                    <tr>
+                        <th class="px-3 py-2 text-center text-sm font-bold text-pink-800 dark:text-pink-200 border border-pink-300 dark:border-pink-600">
+                            Nº
+                        </th>
+                        <th class="px-3 py-2 text-center text-sm font-bold text-pink-800 dark:text-pink-200 border border-pink-300 dark:border-pink-600">
+                            Bola 1
+                        </th>
+                        <th class="px-3 py-2 text-center text-sm font-bold text-pink-800 dark:text-pink-200 border border-pink-300 dark:border-pink-600">
+                            Bola 2
+                        </th>
+                        <th class="px-3 py-2 text-center text-sm font-bold text-pink-800 dark:text-pink-200 border border-pink-300 dark:border-pink-600">
+                            Bola 3
+                        </th>
+                        <th class="px-3 py-2 text-center text-sm font-bold text-pink-800 dark:text-pink-200 border border-pink-300 dark:border-pink-600">
+                            Bola 4
+                        </th>
+                        <th class="px-3 py-2 text-center text-sm font-bold text-pink-800 dark:text-pink-200 border border-pink-300 dark:border-pink-600">
+                            Bola 5
+                        </th>
+                        <th class="px-3 py-2 text-center text-sm font-bold text-pink-800 dark:text-pink-200 border border-pink-300 dark:border-pink-600">
+                            Bola 6
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white dark:bg-gray-800">
             `;
 
+            // Para cada número de 1 a 50
+            for (let num = 1; num <= 50; num++) {
+                html += `<tr class="hover:bg-pink-50 dark:hover:bg-pink-900">`;
+                
+                // Número da linha
+                html += `
+                    <td class="px-3 py-2 text-center font-bold text-gray-700 dark:text-gray-300 border border-pink-300 dark:border-pink-600 bg-pink-100 dark:bg-pink-800">
+                        ${num}
+                    </td>
+                `;
+                
+                // Para cada bola (1-6)
+                for (let pos = 1; pos <= 6; pos++) {
+                    const saiu = numerosQueApareceram[pos].has(num);
+                    html += `
+                        <td class="px-3 py-2 text-center border border-pink-300 dark:border-pink-600">
+                            ${saiu ? '✅' : ''}
+                        </td>
+                    `;
+                }
+                
+                html += `</tr>`;
+            }
+
+            html += '</tbody>';
+            tabela.innerHTML = html;
+
+            // Gerar resumo estatístico
+            const resumo = document.getElementById('resumoAnaliseVisual');
+            let resumoHTML = '';
+            
+            for (let pos = 1; pos <= 6; pos++) {
+                const totalSaiu = numerosQueApareceram[pos].size;
+                const totalFaltando = 50 - totalSaiu;
+                
+                resumoHTML += `
+                    <div class="bg-white dark:bg-gray-800 p-3 rounded-lg border border-pink-300 dark:border-pink-600 text-center">
+                        <div class="text-xs font-medium text-pink-700 dark:text-pink-300 mb-1">Bola ${pos}</div>
+                        <div class="text-lg font-bold text-pink-600 dark:text-pink-400">${totalSaiu}/50</div>
+                        <div class="text-xs text-pink-500 dark:text-pink-400">${totalFaltando} faltando</div>
+                    </div>
+                `;
+            }
+            
+            resumo.innerHTML = resumoHTML;
+
+            // Gerar tabela azul - Números que NÃO saíram por posição
+            const numerosFaltandoPorPosicao = {};
+            
+            // Para cada posição, calcular quais números NÃO apareceram
+            for (let pos = 1; pos <= 6; pos++) {
+                const numerosFaltando = [];
+                
+                // Verificar cada número de 1-50
+                for (let num = 1; num <= 50; num++) {
+                    if (!numerosQueApareceram[pos].has(num)) {
+                        numerosFaltando.push(num);
+                    }
+                }
+                
+                numerosFaltandoPorPosicao[pos] = numerosFaltando.sort((a, b) => a - b);
+            }
+            
+            // Gerar HTML da tabela azul
+            const tabelaNumerosNaoSairam = document.getElementById('tabelaNumerosNaoSairam');
+            const maxNumerosFaltando = Math.max(...Object.values(numerosFaltandoPorPosicao).map(arr => arr.length));
+            
+            if (maxNumerosFaltando === 0) {
+                tabelaNumerosNaoSairam.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="px-3 py-4 text-center font-medium text-pink-600 dark:text-pink-400 border border-blue-300 dark:border-blue-600">
+                            ✅ Todos os números de 1-50 saíram em todas as posições nos últimos ${jogosAnalisar} jogos do ${sorteioAtualAnaliseVisual}º sorteio!
+                        </td>
+                    </tr>
+                `;
+            } else {
+                let htmlNaoSairam = '';
+                
+                for (let linha = 0; linha < maxNumerosFaltando; linha++) {
+                    htmlNaoSairam += '<tr>';
+                    
+                    for (let pos = 1; pos <= 6; pos++) {
+                        const numerosFaltando = numerosFaltandoPorPosicao[pos];
+                        const numero = linha < numerosFaltando.length ? numerosFaltando[linha] : '';
+                        
+                        htmlNaoSairam += `
+                            <td class="px-3 py-2 text-center font-medium text-blue-800 dark:text-blue-200 border border-blue-300 dark:border-blue-600">
+                                ${numero}
+                            </td>
+                        `;
+                    }
+                    
+                    htmlNaoSairam += '</tr>';
+                }
+                
+                tabelaNumerosNaoSairam.innerHTML = htmlNaoSairam;
+            }
+            
+            // Atualizar elemento de jogos escolhidos
             document.getElementById('jogosEscolhidos').textContent = jogosAnalisar;
+
+            // Mostrar análise visual
             document.getElementById('analiseVisual').classList.remove('hidden');
         }
 
         // Event listeners para análise visual
         document.getElementById('atualizarAnalise').addEventListener('click', () => {
-            const jogos = parseInt(document.getElementById('jogosAnalisar').value) || 50;
+            const jogos = parseInt(document.getElementById('jogosAnalisar').value) || 30;
             if (jogos < 1 || jogos > 100) {
                 mostrarModal('Erro', 'Por favor, insira um valor entre 1 e 100 jogos.');
                 return;
@@ -1815,7 +2330,7 @@
             } else {
                 resultados.classList.add('hidden');
                 toggleBtn.textContent = '👁️ Mostrar Tabela de Resultados';
-                toggleBtn.className = 'bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200';
+                toggleBtn.className = 'bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200';
             }
         });
 
@@ -1830,11 +2345,13 @@
                 return atual.numero > ultimo.numero ? atual : ultimo;
             });
 
-            // Converter números para inteiros - Dupla Sena tem 2 sorteios
-            const primeiro = (ultimoConcursoData.dezenasSorteadasOrdemSorteio || []).slice(0, 6).map(num => parseInt(num));
-            const segundo = (ultimoConcursoData.listaDezenasSegundoSorteio || []).slice(0, 6).map(num => parseInt(num));
+            // Usar o primeiro sorteio para eliminação (pode ser configurado)
+            if (ultimoConcursoData.listaDezenas && ultimoConcursoData.listaDezenas[0]) {
+                numerosEliminadosGlobal = ultimoConcursoData.listaDezenas[0].split('-').map(num => parseInt(num));
+            } else {
+                numerosEliminadosGlobal = [];
+            }
             
-            numerosEliminadosGlobal = [...primeiro, ...segundo];
             numerosUsadosProgressivo = [...numerosEliminadosGlobal];
             sequenciaAtual = 1;
 
@@ -1856,44 +2373,42 @@
                 return;
             }
 
-            const primeiro = (ultimoConcursoData.dezenasSorteadasOrdemSorteio || []).slice(0, 6);
-            const segundo = (ultimoConcursoData.listaDezenasSegundoSorteio || []).slice(0, 6);
-
-            const numerosHTML1 = primeiro
+            const numeros1HTML = ultimoConcursoData.listaDezenas && ultimoConcursoData.listaDezenas[0] ?
+                ultimoConcursoData.listaDezenas[0].split('-')
                 .map(num => `<span class="inline-block bg-red-100 dark:bg-red-800 text-red-800 dark:text-red-200 px-2 py-1 rounded-full text-sm font-bold mx-1">${num}</span>`)
-                .join('');
+                .join('') : '<span class="text-gray-500">N/A</span>';
 
-            const numerosHTML2 = segundo
-                .map(num => `<span class="inline-block bg-purple-100 dark:bg-purple-800 text-purple-800 dark:text-purple-200 px-2 py-1 rounded-full text-sm font-bold mx-1">${num}</span>`)
-                .join('');
+            const numeros2HTML = ultimoConcursoData.listaDezenas && ultimoConcursoData.listaDezenas[1] ?
+                ultimoConcursoData.listaDezenas[1].split('-')
+                .map(num => `<span class="inline-block bg-red-100 dark:bg-red-800 text-red-800 dark:text-red-200 px-2 py-1 rounded-full text-sm font-bold mx-1">${num}</span>`)
+                .join('') : '<span class="text-gray-500">N/A</span>';
 
             const dataFormatada = formatarData(ultimoConcursoData.dataApuracao) || 
                                 formatarData(ultimoConcursoData.dataSorteio) || 
                                 'N/A';
 
             dadosDiv.innerHTML = `
-                <div class="space-y-4">
+                <div class="space-y-3">
                     <div class="text-lg font-semibold text-gray-800 dark:text-gray-200">
                         Concurso: <span class="text-purple-600 dark:text-purple-400">${ultimoConcursoData.numero}</span>
                     </div>
                     <div class="text-sm text-gray-600 dark:text-gray-400">
                         Data: ${dataFormatada}
                     </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="primeiro-sorteio p-3 rounded-lg">
-                            <div class="text-sm font-semibold mb-2" style="color: #660d2b;">🎯 1º Sorteio:</div>
-                            <div class="flex flex-wrap gap-1">
-                                ${numerosHTML1}
-                            </div>
-                        </div>
-                        
-                        <div class="segundo-sorteio p-3 rounded-lg">
-                            <div class="text-sm font-semibold mb-2" style="color: #660d2b;">🎲 2º Sorteio:</div>
-                            <div class="flex flex-wrap gap-1">
-                                ${numerosHTML2}
-                            </div>
-                        </div>
+                    <div class="text-sm text-gray-700 dark:text-gray-300 mb-2">
+                        1º Sorteio:
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-1 mb-3">
+                        ${numeros1HTML}
+                    </div>
+                    <div class="text-sm text-gray-700 dark:text-gray-300 mb-2">
+                        2º Sorteio:
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-1">
+                        ${numeros2HTML}
+                    </div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400 text-center mt-2">
+                        Estratégias baseadas no 1º sorteio
                     </div>
                 </div>
             `;
@@ -1912,7 +2427,7 @@
             
             eliminadosDiv.innerHTML = eliminadosHTML || '<span class="text-gray-500 text-sm">Nenhum número eliminado</span>';
             
-            // Números disponíveis
+            // Números disponíveis (1-50 para Dupla Sena)
             const todosNumeros = Array.from({length: 50}, (_, i) => i + 1);
             const numerosDisponiveis = todosNumeros.filter(num => !numerosUsadosProgressivo.includes(num));
             
@@ -1928,7 +2443,7 @@
             const statusDiv = document.getElementById('statusProgressivo');
             const todosNumeros = Array.from({length: 50}, (_, i) => i + 1);
             const numerosDisponiveis = todosNumeros.filter(num => !numerosUsadosProgressivo.includes(num));
-            const maxSequencias = Math.floor(38 / 12) + 1; // 38 disponíveis / 12 por sequência
+            const maxSequencias = Math.floor(44 / 6) + 1;
             
             statusDiv.textContent = `Sequência: ${sequenciaAtual}/${maxSequencias} | Disponíveis: ${numerosDisponiveis.length}`;
         }
@@ -1955,16 +2470,16 @@
             return num.toString().padStart(2, '0');
         }
 
-        // Função para classificar números por faixas (Dupla Sena: 1-50)
+        // Função para classificar números por faixas (adaptado para 1-50)
         function classificarNumeros(numeros) {
-            const baixas = []; // 01-17
-            const medias = []; // 18-33  
+            const baixas = []; // 01-16
+            const medias = []; // 17-33  
             const altas = [];  // 34-50
             
             numeros.forEach(num => {
-                if (num >= 1 && num <= 17) {
+                if (num >= 1 && num <= 16) {
                     baixas.push(num);
-                } else if (num >= 18 && num <= 33) {
+                } else if (num >= 17 && num <= 33) {
                     medias.push(num);
                 } else if (num >= 34 && num <= 50) {
                     altas.push(num);
@@ -2030,48 +2545,44 @@
 
             const quantidadeJogos = parseInt(document.getElementById('quantidadeJogos1').value) || 1;
             
-            // Validar quantidade
-            if (quantidadeJogos < 1 || quantidadeJogos > 38) {
-                mostrarModal('Erro', 'Quantidade deve ser entre 1 e 38 jogos por sorteio.');
+            // Validar quantidade (44 números disponíveis / 6 por jogo = máx 7 jogos únicos)
+            if (quantidadeJogos < 1 || quantidadeJogos > 7) {
+                mostrarModal('Erro', 'Quantidade deve ser entre 1 e 7 jogos.');
                 return;
             }
 
             const todosNumeros = Array.from({length: 50}, (_, i) => i + 1);
+            const numerosEliminados = ultimoConcursoData.listaDezenas && ultimoConcursoData.listaDezenas[0] ?
+                ultimoConcursoData.listaDezenas[0].split('-').map(num => parseInt(num)) : [];
             
-            // Pool de números disponíveis (1-50 exceto os 12 do último concurso)
-            const numerosDisponiveis = todosNumeros.filter(num => !numerosEliminadosGlobal.includes(num));
+            // Pool de números disponíveis (1-50 exceto os do último concurso)
+            const numerosDisponiveis = todosNumeros.filter(num => !numerosEliminados.includes(num));
             
             // Verificar se é possível gerar a quantidade solicitada
-            const maxJogosPorSorteio = Math.floor(numerosDisponiveis.length / 6);
-            if (quantidadeJogos > maxJogosPorSorteio) {
-                mostrarModal('Erro', `Máximo possível: ${maxJogosPorSorteio} jogos únicos por sorteio com ${numerosDisponiveis.length} números disponíveis.`);
+            const maxJogosPossiveis = Math.floor(numerosDisponiveis.length / 6);
+            if (quantidadeJogos > maxJogosPossiveis) {
+                mostrarModal('Erro', `Máximo possível: ${maxJogosPossiveis} jogos únicos com ${numerosDisponiveis.length} números disponíveis.`);
                 return;
             }
             
-            // Gerar múltiplos jogos para cada sorteio
-            const jogosGerados = { primeiro: [], segundo: [] };
+            // Gerar múltiplos jogos usando estratégia equilibrada
+            const jogosGerados = [];
             const numerosJaUsados = new Set();
             
             for (let i = 0; i < quantidadeJogos; i++) {
-                // Pool disponível para este jogo
+                // Pool disponível para este jogo (exclui números já usados em jogos anteriores)
                 const poolDisponivel = numerosDisponiveis.filter(num => !numerosJaUsados.has(num));
                 
-                if (poolDisponivel.length < 12) { // Precisa de 12 números (6 para cada sorteio)
+                if (poolDisponivel.length < 6) {
                     break;
                 }
                 
-                // Gerar 1º sorteio
-                const jogo1 = gerarJogoEquilibrado(poolDisponivel);
-                jogosGerados.primeiro.push(jogo1);
-                jogo1.forEach(num => numerosJaUsados.add(num));
+                // Gerar jogo equilibrado
+                const jogo = gerarJogoEquilibrado(poolDisponivel);
+                jogosGerados.push(jogo);
                 
-                // Pool atualizado para o 2º sorteio
-                const poolRestante = numerosDisponiveis.filter(num => !numerosJaUsados.has(num));
-                
-                // Gerar 2º sorteio
-                const jogo2 = gerarJogoEquilibrado(poolRestante);
-                jogosGerados.segundo.push(jogo2);
-                jogo2.forEach(num => numerosJaUsados.add(num));
+                // Marcar números como usados
+                jogo.forEach(num => numerosJaUsados.add(num));
             }
             
             // Adicionar ao histórico
@@ -2080,9 +2591,9 @@
                 id: Date.now(),
                 estrategia: 1,
                 jogos: jogosGerados,
-                quantidade: jogosGerados.primeiro.length,
+                quantidade: jogosGerados.length,
                 horario: horario,
-                info: `${jogosGerados.primeiro.length} jogos duplos - Eliminou concurso ${ultimoConcursoData.numero}`
+                info: `${jogosGerados.length} jogos - Eliminou concurso ${ultimoConcursoData.numero}`
             };
             
             historicoPalpitesData.unshift(novoPalpite);
@@ -2103,14 +2614,16 @@
             
             // Validar quantidade
             if (quantidadeJogos < 1 || quantidadeJogos > 50) {
-                mostrarModal('Erro', 'Quantidade deve ser entre 1 e 50 jogos por sorteio.');
+                mostrarModal('Erro', 'Quantidade deve ser entre 1 e 50 jogos.');
                 return;
             }
 
             const todosNumeros = Array.from({length: 50}, (_, i) => i + 1);
+            const numerosEliminados = ultimoConcursoData.listaDezenas && ultimoConcursoData.listaDezenas[0] ?
+                ultimoConcursoData.listaDezenas[0].split('-').map(num => parseInt(num)) : [];
             
-            // Pool de números disponíveis (1-50 exceto os 12 do último concurso)
-            const numerosDisponiveis = todosNumeros.filter(num => !numerosEliminadosGlobal.includes(num));
+            // Pool de números disponíveis (1-50 exceto os do último concurso)
+            const numerosDisponiveis = todosNumeros.filter(num => !numerosEliminados.includes(num));
             
             if (numerosDisponiveis.length < 6) {
                 mostrarModal('Erro', `Números disponíveis insuficientes: apenas ${numerosDisponiveis.length} disponíveis.`);
@@ -2118,15 +2631,12 @@
             }
             
             // ESTRATÉGIA 3: Permitir repetição de números entre jogos
-            const jogosGerados = { primeiro: [], segundo: [] };
+            const jogosGerados = [];
             
             for (let i = 0; i < quantidadeJogos; i++) {
                 // Cada jogo pode usar qualquer um dos números disponíveis (permite repetição)
-                const jogo1 = gerarJogoEquilibrado(numerosDisponiveis);
-                const jogo2 = gerarJogoEquilibrado(numerosDisponiveis);
-                
-                jogosGerados.primeiro.push(jogo1);
-                jogosGerados.segundo.push(jogo2);
+                const jogo = gerarJogoEquilibrado(numerosDisponiveis);
+                jogosGerados.push(jogo);
             }
             
             // Adicionar ao histórico
@@ -2135,9 +2645,9 @@
                 id: Date.now(),
                 estrategia: 3,
                 jogos: jogosGerados,
-                quantidade: jogosGerados.primeiro.length,
+                quantidade: jogosGerados.length,
                 horario: horario,
-                info: `${jogosGerados.primeiro.length} jogos duplos - Eliminou concurso ${ultimoConcursoData.numero} (com repetição)`
+                info: `${jogosGerados.length} jogos - Eliminou concurso ${ultimoConcursoData.numero} (com repetição)`
             };
             
             historicoPalpitesData.unshift(novoPalpite);
@@ -2159,20 +2669,18 @@
             const numerosDisponiveis = todosNumeros.filter(num => !numerosUsadosConvertidos.includes(num));
             
             // Verificar se precisa reiniciar
-            if (numerosDisponiveis.length < 12) { // Precisa de 12 números (6 para cada sorteio)
+            if (numerosDisponiveis.length < 6) {
                 reiniciarEstrategia2();
                 
                 // Recalcular após reiniciar
                 const numerosUsadosReiniciados = numerosUsadosProgressivo.map(num => parseInt(num));
                 const numerosDisponiveisNovo = todosNumeros.filter(num => !numerosUsadosReiniciados.includes(num));
                 
-                // Gerar jogos equilibrados após reiniciar
-                const palpite1 = gerarJogoEquilibrado(numerosDisponiveisNovo);
-                const numerosRestantes = numerosDisponiveisNovo.filter(num => !palpite1.includes(num));
-                const palpite2 = gerarJogoEquilibrado(numerosRestantes);
+                // Gerar jogo equilibrado após reiniciar
+                const palpite = gerarJogoEquilibrado(numerosDisponiveisNovo);
                 
                 // Atualizar arrays
-                numerosUsadosProgressivo.push(...palpite1, ...palpite2);
+                numerosUsadosProgressivo.push(...palpite);
                 sequenciaAtual++;
                 
                 // Adicionar ao histórico
@@ -2180,7 +2688,7 @@
                 const novoPalpite = {
                     id: Date.now(),
                     estrategia: 2,
-                    jogos: { primeiro: [palpite1], segundo: [palpite2] },
+                    numeros: palpite,
                     horario: horario,
                     info: `Seq. ${sequenciaAtual-1} (Reiniciado)`
                 };
@@ -2188,7 +2696,7 @@
                 historicoPalpitesData.unshift(novoPalpite);
                 
                 // Atualizar interface
-                exibirResultadoEstrategia2({ primeiro: [palpite1], segundo: [palpite2] }, true);
+                exibirResultadoEstrategia2(palpite, true);
                 atualizarVisualizacaoNumeros();
                 atualizarStatusProgressivo();
                 atualizarHistoricoPalpites();
@@ -2196,13 +2704,11 @@
                 return;
             }
             
-            // Gerar jogos equilibrados
-            const palpite1 = gerarJogoEquilibrado(numerosDisponiveis);
-            const numerosRestantes = numerosDisponiveis.filter(num => !palpite1.includes(num));
-            const palpite2 = gerarJogoEquilibrado(numerosRestantes);
+            // Gerar jogo equilibrado
+            const palpite = gerarJogoEquilibrado(numerosDisponiveis);
             
             // Atualizar arrays
-            numerosUsadosProgressivo.push(...palpite1, ...palpite2);
+            numerosUsadosProgressivo.push(...palpite);
             sequenciaAtual++;
             
             // Adicionar ao histórico
@@ -2210,7 +2716,7 @@
             const novoPalpite = {
                 id: Date.now(),
                 estrategia: 2,
-                jogos: { primeiro: [palpite1], segundo: [palpite2] },
+                numeros: palpite,
                 horario: horario,
                 info: `Sequência ${sequenciaAtual-1}`
             };
@@ -2218,7 +2724,7 @@
             historicoPalpitesData.unshift(novoPalpite);
             
             // Atualizar interface
-            exibirResultadoEstrategia2({ primeiro: [palpite1], segundo: [palpite2] }, false);
+            exibirResultadoEstrategia2(palpite, false);
             atualizarVisualizacaoNumeros();
             atualizarStatusProgressivo();
             atualizarHistoricoPalpites();
@@ -2226,74 +2732,43 @@
 
         // Função para reiniciar estratégia 2
         function reiniciarEstrategia2() {
-            numerosUsadosProgressivo = [...numerosEliminadosGlobal];
+            const numerosEliminados = ultimoConcursoData.listaDezenas && ultimoConcursoData.listaDezenas[0] ?
+                ultimoConcursoData.listaDezenas[0].split('-').map(num => parseInt(num)) : [];
+            numerosUsadosProgressivo = [...numerosEliminados];
             sequenciaAtual = 1;
         }
 
-        // Função para exibir resultado da estratégia 1 (múltiplos jogos duplos)
+        // Função para exibir resultado da estratégia 1 (múltiplos jogos)
         function exibirResultadoEstrategia1(jogos) {
             const resultadoDiv = document.getElementById('resultadoEstrategia1');
             
             let jogosHTML = '';
-            for (let i = 0; i < jogos.primeiro.length; i++) {
-                const numerosHTML1 = jogos.primeiro[i]
-                    .map(num => `<span class="numero-palpite px-2 py-1 rounded-full text-xs font-bold font-mono">${formatarNumero(num)}</span>`)
-                    .join(' ');
-                
-                const numerosHTML2 = jogos.segundo[i]
-                    .map(num => `<span class="numero-palpite px-2 py-1 rounded-full text-xs font-bold font-mono">${formatarNumero(num)}</span>`)
+            jogos.forEach((jogo, index) => {
+                const numerosHTML = jogo
+                    .map(num => `<span class="numero-palpite px-3 py-2 rounded-full text-sm font-bold font-mono">${formatarNumero(num)}</span>`)
                     .join(' ');
                 
                 jogosHTML += `
-                    <div class="mb-4 p-3 bg-white dark:bg-gray-800 rounded border border-green-300 dark:border-green-600">
-                        <div class="text-xs font-medium text-green-700 dark:text-green-300 mb-3 text-center">
-                            Jogo ${i + 1}:
+                    <div class="mb-3 p-3 bg-white dark:bg-gray-800 rounded border border-pink-300 dark:border-pink-600">
+                        <div class="text-xs font-medium text-pink-700 dark:text-pink-300 mb-2">
+                            Jogo ${index + 1}:
                         </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            <div class="primeiro-sorteio p-2 rounded">
-                                <div class="text-xs font-medium mb-2" style="color: #660d2b;">🎯 1º Sorteio:</div>
-                                <div class="flex flex-wrap gap-1 justify-center">
-                                    ${numerosHTML1}
-                                </div>
-                            </div>
-                            
-                            <div class="segundo-sorteio p-2 rounded">
-                                <div class="text-xs font-medium mb-2" style="color: #660d2b;">🎲 2º Sorteio:</div>
-                                <div class="flex flex-wrap gap-1 justify-center">
-                                    ${numerosHTML2}
-                                </div>
-                            </div>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            ${numerosHTML}
                         </div>
                     </div>
                 `;
-            }
+            });
             
             resultadoDiv.innerHTML = `
-                <div class="bg-green-100 dark:bg-green-800 border border-green-300 dark:border-green-600 rounded-lg p-3">
-                    <div class="text-sm font-medium text-green-800 dark:text-green-200 mb-3">
-                        ✅ ${jogos.primeiro.length} Palpite(s) Duplo(s) Gerado(s):
+                <div class="bg-pink-100 dark:bg-pink-800 border border-pink-300 dark:border-pink-600 rounded-lg p-3">
+                    <div class="text-sm font-medium text-pink-800 dark:text-pink-200 mb-3">
+                        ✅ ${jogos.length} Palpite(s) Gerado(s):
                     </div>
                     ${jogosHTML}
                     
-                    <!-- Botões de Download -->
-                    <div class="mt-4 flex flex-wrap gap-2 justify-center">
-                        <button onclick="baixarPalpitesDupla(${JSON.stringify(jogos).replace(/"/g, '&quot;')}, 'txt', 1)" 
-                                class="bg-blue-500 hover:bg-blue-600 text-white text-xs py-1 px-3 rounded transition-colors">
-                            📄 TXT
-                        </button>
-                        <button onclick="baixarPalpitesDupla(${JSON.stringify(jogos).replace(/"/g, '&quot;')}, 'html', 1)" 
-                                class="bg-orange-500 hover:bg-orange-600 text-white text-xs py-1 px-3 rounded transition-colors">
-                            🌐 HTML
-                        </button>
-                        <button onclick="baixarPalpitesDupla(${JSON.stringify(jogos).replace(/"/g, '&quot;')}, 'xlsx', 1)" 
-                                class="bg-green-500 hover:bg-green-600 text-white text-xs py-1 px-3 rounded transition-colors">
-                            📊 XLSX
-                        </button>
-                    </div>
-                    
-                    <div class="text-xs text-green-600 dark:text-green-400 mt-2 text-center">
-                        ${jogos.primeiro.length} jogo(s) duplo(s) | Eliminou ${numerosEliminadosGlobal.length} do concurso ${ultimoConcursoData.numero}
+                    <div class="text-xs text-pink-600 dark:text-pink-400 mt-2 text-center">
+                        ${jogos.length} jogo(s) | Eliminou ${numerosEliminadosGlobal.length} do concurso ${ultimoConcursoData.numero}
                     </div>
                 </div>
             `;
@@ -2301,70 +2776,37 @@
             resultadoDiv.classList.remove('hidden');
         }
 
-        // Função para exibir resultado da estratégia 3 (múltiplos jogos duplos com repetição)
+        // Função para exibir resultado da estratégia 3 (múltiplos jogos com repetição)
         function exibirResultadoEstrategia3(jogos) {
             const resultadoDiv = document.getElementById('resultadoEstrategia3');
             
             let jogosHTML = '';
-            for (let i = 0; i < jogos.primeiro.length; i++) {
-                const numerosHTML1 = jogos.primeiro[i]
-                    .map(num => `<span class="numero-palpite px-2 py-1 rounded-full text-xs font-bold font-mono">${formatarNumero(num)}</span>`)
-                    .join(' ');
-                
-                const numerosHTML2 = jogos.segundo[i]
-                    .map(num => `<span class="numero-palpite px-2 py-1 rounded-full text-xs font-bold font-mono">${formatarNumero(num)}</span>`)
+            jogos.forEach((jogo, index) => {
+                const numerosHTML = jogo
+                    .map(num => `<span class="numero-palpite px-3 py-2 rounded-full text-sm font-bold font-mono">${formatarNumero(num)}</span>`)
                     .join(' ');
                 
                 jogosHTML += `
-                    <div class="mb-4 p-3 bg-white dark:bg-gray-800 rounded border border-purple-300 dark:border-purple-600">
-                        <div class="text-xs font-medium text-purple-700 dark:text-purple-300 mb-3 text-center">
-                            Jogo ${i + 1}:
+                    <div class="mb-3 p-3 bg-white dark:bg-gray-800 rounded border border-purple-300 dark:border-purple-600">
+                        <div class="text-xs font-medium text-purple-700 dark:text-purple-300 mb-2">
+                            Jogo ${index + 1}:
                         </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            <div class="primeiro-sorteio p-2 rounded">
-                                <div class="text-xs font-medium mb-2" style="color: #660d2b;">🎯 1º Sorteio:</div>
-                                <div class="flex flex-wrap gap-1 justify-center">
-                                    ${numerosHTML1}
-                                </div>
-                            </div>
-                            
-                            <div class="segundo-sorteio p-2 rounded">
-                                <div class="text-xs font-medium mb-2" style="color: #660d2b;">🎲 2º Sorteio:</div>
-                                <div class="flex flex-wrap gap-1 justify-center">
-                                    ${numerosHTML2}
-                                </div>
-                            </div>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            ${numerosHTML}
                         </div>
                     </div>
                 `;
-            }
+            });
             
             resultadoDiv.innerHTML = `
                 <div class="bg-purple-100 dark:bg-purple-800 border border-purple-300 dark:border-purple-600 rounded-lg p-3">
                     <div class="text-sm font-medium text-purple-800 dark:text-purple-200 mb-3">
-                        ✅ ${jogos.primeiro.length} Palpite(s) Duplo(s) Gerado(s):
+                        ✅ ${jogos.length} Palpite(s) Gerado(s):
                     </div>
                     ${jogosHTML}
                     
-                    <!-- Botões de Download -->
-                    <div class="mt-4 flex flex-wrap gap-2 justify-center">
-                        <button onclick="baixarPalpitesDupla(${JSON.stringify(jogos).replace(/"/g, '&quot;')}, 'txt', 3)" 
-                                class="bg-blue-500 hover:bg-blue-600 text-white text-xs py-1 px-3 rounded transition-colors">
-                            📄 TXT
-                        </button>
-                        <button onclick="baixarPalpitesDupla(${JSON.stringify(jogos).replace(/"/g, '&quot;')}, 'html', 3)" 
-                                class="bg-orange-500 hover:bg-orange-600 text-white text-xs py-1 px-3 rounded transition-colors">
-                            🌐 HTML
-                        </button>
-                        <button onclick="baixarPalpitesDupla(${JSON.stringify(jogos).replace(/"/g, '&quot;')}, 'xlsx', 3)" 
-                                class="bg-green-500 hover:bg-green-600 text-white text-xs py-1 px-3 rounded transition-colors">
-                            📊 XLSX
-                        </button>
-                    </div>
-                    
                     <div class="text-xs text-purple-600 dark:text-purple-400 mt-2 text-center">
-                        ${jogos.primeiro.length} jogo(s) duplo(s) | Eliminou ${numerosEliminadosGlobal.length} do concurso ${ultimoConcursoData.numero} | ✨ Permite repetição
+                        ${jogos.length} jogo(s) | Eliminou ${numerosEliminadosGlobal.length} do concurso ${ultimoConcursoData.numero} | ✨ Permite repetição
                     </div>
                 </div>
             `;
@@ -2373,45 +2815,27 @@
         }
 
         // Função para exibir resultado da estratégia 2
-        function exibirResultadoEstrategia2(jogos, reiniciado = false) {
+        function exibirResultadoEstrategia2(palpite, reiniciado = false) {
             const resultadoDiv = document.getElementById('resultadoEstrategia2');
             
-            const numerosHTML1 = jogos.primeiro[0]
-                .map(num => `<span class="numero-palpite px-2 py-1 rounded-full text-xs font-bold">${num}</span>`)
-                .join(' ');
-            
-            const numerosHTML2 = jogos.segundo[0]
-                .map(num => `<span class="numero-palpite px-2 py-1 rounded-full text-xs font-bold">${num}</span>`)
-                .join(' ');
+            const numerosHTML = palpite
+                .map(num => `<span class="numero-palpite px-3 py-2 rounded-full text-sm font-bold">${num}</span>`)
+                .join('');
             
             const statusTexto = reiniciado ? 
                 `🔄 Reiniciado - Sequência ${sequenciaAtual-1}` : 
-                `Sequência ${sequenciaAtual-1} de 6`;
+                `Sequência ${sequenciaAtual-1} de 7`;
             
             resultadoDiv.innerHTML = `
                 <div class="bg-blue-100 dark:bg-blue-800 border border-blue-300 dark:border-blue-600 rounded-lg p-3">
-                    <div class="text-sm font-medium text-blue-800 dark:text-blue-200 mb-3">
-                        ✅ Palpite Duplo Gerado:
+                    <div class="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">
+                        ✅ Palpite Gerado:
                     </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div class="primeiro-sorteio p-2 rounded">
-                            <div class="text-xs font-medium mb-2" style="color: #660d2b;">🎯 1º Sorteio:</div>
-                            <div class="flex flex-wrap gap-1 justify-center">
-                                ${numerosHTML1}
-                            </div>
-                        </div>
-                        
-                        <div class="segundo-sorteio p-2 rounded">
-                            <div class="text-xs font-medium mb-2" style="color: #660d2b;">🎲 2º Sorteio:</div>
-                            <div class="flex flex-wrap gap-1 justify-center">
-                                ${numerosHTML2}
-                            </div>
-                        </div>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        ${numerosHTML}
                     </div>
-                    
                     <div class="text-xs text-blue-600 dark:text-blue-400 mt-2 text-center">
-                        ${statusTexto} | 12 números | Total eliminado: ${numerosUsadosProgressivo.length}
+                        ${statusTexto} | ${palpite.length} números | Total eliminado: ${numerosUsadosProgressivo.length}
                     </div>
                 </div>
             `;
@@ -2440,13 +2864,13 @@
                         case 1: estrategiaTexto = '🎲 Simples'; break;
                         case 2: estrategiaTexto = '🔄 Progressiva'; break;
                         case 3: estrategiaTexto = '🎰 Livre'; break;
+                        case 4: estrategiaTexto = '🎮 Por Posição'; break;
                         default: estrategiaTexto = '❓ Desconhecida';
                     }
                     
-                    // Para Dupla Sena, mostrar o primeiro jogo de cada sorteio
-                    let numerosParaExibir = [];
-                    if (palpite.jogos && palpite.jogos.primeiro && palpite.jogos.primeiro.length > 0) {
-                        numerosParaExibir = [...palpite.jogos.primeiro[0], ...palpite.jogos.segundo[0]];
+                    let numerosParaExibir = palpite.numeros;
+                    if (palpite.jogos && palpite.jogos.length > 0) {
+                        numerosParaExibir = palpite.jogos[0];
                     }
                     
                     const numerosHTML = numerosParaExibir
@@ -2480,6 +2904,166 @@
             atualizarHistoricoPalpites();
         }
 
+        // FUNÇÕES: Gerador de jogos por posição
+        function gerarSeletoresPosicao() {
+            const container = document.getElementById('seletoresPosicao');
+            container.innerHTML = '';
+
+            for (let pos = 1; pos <= 6; pos++) {
+                const dadosPos = analiseCicloPorPosicao[pos][sorteioAtualAnalise];
+                
+                // Ordenar números por frequência
+                const numerosOrdenados = Object.entries(dadosPos)
+                    .map(([num, freq]) => ({numero: parseInt(num), frequencia: freq}))
+                    .sort((a, b) => b.frequencia - a.frequencia);
+
+                // Separar categorias - pegar 10 que mais saíram e os que menos saíram (excluindo 0)
+                const maisSairam = numerosOrdenados.filter(item => item.frequencia > 0).slice(0, 10);
+                const menosSairam = numerosOrdenados.filter(item => item.frequencia > 0).slice(-10);
+
+                const cardHTML = `
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+                        <h4 class="text-lg font-semibold mb-3 text-center text-gray-800 dark:text-white">🎯 Bola ${pos}</h4>
+                        
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-sm font-semibold text-pink-600 dark:text-pink-400 mb-1">🔥 Mais saíram:</label>
+                                <select id="selectMais${pos}" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 dark:text-white text-base">
+                                    <option value="">Selecione um número</option>
+                                    ${maisSairam.map(item => `
+                                        <option value="${item.numero}">${String(item.numero).padStart(2, '0')} (${item.frequencia}x)</option>
+                                    `).join('')}
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-yellow-600 dark:text-yellow-400 mb-1">🔹 Menos saíram:</label>
+                                <select id="selectMenos${pos}" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 dark:text-white text-base">
+                                    <option value="">Selecione um número</option>
+                                    ${menosSairam.map(item => `
+                                        <option value="${item.numero}">${String(item.numero).padStart(2, '0')} (${item.frequencia}x)</option>
+                                    `).join('')}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <span id="numeroSelecionado${pos}" class="text-sm text-gray-500 dark:text-gray-400">
+                                Nenhum número selecionado
+                            </span>
+                        </div>
+                    </div>
+                `;
+
+                container.innerHTML += cardHTML;
+            }
+
+            // Adicionar event listeners para os selects
+            for (let pos = 1; pos <= 6; pos++) {
+                document.getElementById(`selectMais${pos}`).addEventListener('change', function() {
+                    if (this.value) {
+                        document.getElementById(`selectMenos${pos}`).value = '';
+                        document.getElementById(`numeroSelecionado${pos}`).textContent = `Selecionado: ${String(this.value).padStart(2, '0')} (Mais saiu)`;
+                        document.getElementById(`numeroSelecionado${pos}`).className = 'text-sm text-pink-600 dark:text-pink-400 font-semibold';
+                    } else {
+                        document.getElementById(`numeroSelecionado${pos}`).textContent = 'Nenhum número selecionado';
+                        document.getElementById(`numeroSelecionado${pos}`).className = 'text-sm text-gray-500 dark:text-gray-400';
+                    }
+                });
+
+                document.getElementById(`selectMenos${pos}`).addEventListener('change', function() {
+                    if (this.value) {
+                        document.getElementById(`selectMais${pos}`).value = '';
+                        document.getElementById(`numeroSelecionado${pos}`).textContent = `Selecionado: ${String(this.value).padStart(2, '0')} (Menos saiu)`;
+                        document.getElementById(`numeroSelecionado${pos}`).className = 'text-sm text-yellow-600 dark:text-yellow-400 font-semibold';
+                    } else {
+                        document.getElementById(`numeroSelecionado${pos}`).textContent = 'Nenhum número selecionado';
+                        document.getElementById(`numeroSelecionado${pos}`).className = 'text-sm text-gray-500 dark:text-gray-400';
+                    }
+                });
+            }
+        }
+
+        function gerarJogoPorPosicao() {
+            const numerosSelecionados = [];
+            let todasPosicoesPreenchidas = true;
+
+            // Verificar se todas as posições têm números selecionados
+            for (let pos = 1; pos <= 6; pos++) {
+                const selectMais = document.getElementById(`selectMais${pos}`);
+                const selectMenos = document.getElementById(`selectMenos${pos}`);
+                
+                const numeroMais = selectMais.value;
+                const numeroMenos = selectMenos.value;
+
+                if (numeroMais) {
+                    numerosSelecionados.push(parseInt(numeroMais));
+                } else if (numeroMenos) {
+                    numerosSelecionados.push(parseInt(numeroMenos));
+                } else {
+                    todasPosicoesPreenchidas = false;
+                    break;
+                }
+            }
+
+            if (!todasPosicoesPreenchidas) {
+                mostrarModal('Erro', 'Por favor, selecione um número para cada uma das 6 posições!');
+                return;
+            }
+
+            // Verificar se há números duplicados
+            const numerosUnicos = [...new Set(numerosSelecionados)];
+            if (numerosUnicos.length !== 6) {
+                mostrarModal('Erro', 'Você selecionou números duplicados! Cada posição deve ter um número diferente.');
+                return;
+            }
+
+            // Ordenar números para exibição
+            const jogoOrdenado = [...numerosSelecionados].sort((a, b) => a - b);
+
+            // Exibir o jogo gerado
+            const container = document.getElementById('numerosJogoGerado');
+            container.innerHTML = jogoOrdenado.map(num => 
+                `<span class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    ${String(num).padStart(2, '0')}
+                </span>`
+            ).join('');
+
+            document.getElementById('jogoGeradoPosicao').classList.remove('hidden');
+        }
+
+        function limparSelecoesPosicao() {
+            for (let pos = 1; pos <= 6; pos++) {
+                document.getElementById(`selectMais${pos}`).value = '';
+                document.getElementById(`selectMenos${pos}`).value = '';
+                document.getElementById(`numeroSelecionado${pos}`).textContent = 'Nenhum número selecionado';
+                document.getElementById(`numeroSelecionado${pos}`).className = 'text-sm text-gray-500 dark:text-gray-400';
+            }
+            document.getElementById('jogoGeradoPosicao').classList.add('hidden');
+        }
+
+        function adicionarJogoAoHistoricoPosicao() {
+            const container = document.getElementById('numerosJogoGerado');
+            const spans = container.querySelectorAll('span');
+            const numeros = Array.from(spans).map(span => parseInt(span.textContent));
+            
+            // Adicionar ao histórico do gerador principal
+            const horario = new Date().toLocaleTimeString('pt-BR');
+            const novoPalpite = {
+                id: Date.now(),
+                estrategia: 4, // Nova estratégia
+                numeros: numeros,
+                horario: horario,
+                info: `Gerado por Análise de Posição`
+            };
+            
+            historicoPalpitesData.unshift(novoPalpite);
+            atualizarHistoricoPalpites();
+            
+            // Limpar seleções após adicionar ao histórico
+            limparSelecoesPosicao();
+        }
+
         // Event listeners do gerador de palpites
         document.getElementById('gerarEstrategia1').addEventListener('click', gerarEstrategia1);
         document.getElementById('gerarEstrategia2').addEventListener('click', gerarEstrategia2);
@@ -2492,7 +3076,23 @@
         });
         document.getElementById('limparHistorico').addEventListener('click', limparHistorico);
 
-        // Event listeners do modal
+        // Event listeners do modal principal "Como Funciona"
+        document.getElementById('comoFuncionaPrincipalBtn').addEventListener('click', () => {
+            document.getElementById('modalComoFuncionaPrincipal').classList.remove('hidden');
+        });
+        
+        document.getElementById('fecharModalPrincipal').addEventListener('click', () => {
+            document.getElementById('modalComoFuncionaPrincipal').classList.add('hidden');
+        });
+        
+        // Fechar modal principal clicando fora
+        document.getElementById('modalComoFuncionaPrincipal').addEventListener('click', (e) => {
+            if (e.target.id === 'modalComoFuncionaPrincipal') {
+                document.getElementById('modalComoFuncionaPrincipal').classList.add('hidden');
+            }
+        });
+
+        // Event listeners do modal do gerador de palpites
         document.getElementById('comoFuncionaBtn').addEventListener('click', () => {
             document.getElementById('modalComoFunciona').classList.remove('hidden');
         });
@@ -2508,142 +3108,10 @@
             }
         });
 
-        // FUNÇÕES DE DOWNLOAD PARA DUPLA SENA
-
-        // Função para gerar conteúdo TXT (Dupla Sena)
-        function gerarTXTDupla(jogos) {
-            let txt = '';
-            for (let i = 0; i < jogos.primeiro.length; i++) {
-                txt += `Jogo ${i + 1}:\n`;
-                txt += `1º Sorteio: ${jogos.primeiro[i].map(num => formatarNumero(num)).join(' ')}\n`;
-                txt += `2º Sorteio: ${jogos.segundo[i].map(num => formatarNumero(num)).join(' ')}\n\n`;
-            }
-            return txt;
-        }
-
-        // Função para gerar conteúdo HTML (Dupla Sena)
-        function gerarHTMLDupla(jogos, estrategia) {
-            const estrategiaTexto = estrategia === 1 ? 'Eliminação Simples' : (estrategia === 2 ? 'Eliminação Progressiva' : 'Eliminação Livre');
-            const data = new Date().toLocaleDateString('pt-BR');
-            const hora = new Date().toLocaleTimeString('pt-BR');
-            
-            let html = `<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palpites Dupla Sena - ${estrategiaTexto}</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .jogo { margin: 15px 0; padding: 15px; border: 2px solid #ba184a; border-radius: 8px; background: #fef2f5; }
-        .sorteio { margin: 10px 0; }
-        .numeros { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-        .numero { background: #ba184a; color: white; padding: 8px 12px; border-radius: 50%; font-weight: bold; min-width: 30px; text-align: center; }
-        .info { color: #666; font-size: 14px; text-align: center; margin-top: 20px; }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>🎯 Dupla Sena - Palpites Gerados</h1>
-        <h2>Estratégia: ${estrategiaTexto}</h2>
-        <p>Gerado em: ${data} às ${hora}</p>
-        <p>Eliminou concurso: ${ultimoConcursoData.numero}</p>
-    </div>`;
-
-            for (let i = 0; i < jogos.primeiro.length; i++) {
-                html += `
-    <div class="jogo">
-        <h3>Jogo ${i + 1}</h3>
-        <div class="sorteio">
-            <h4>🎯 1º Sorteio</h4>
-            <div class="numeros">`;
-        
-        jogos.primeiro[i].forEach(num => {
-            html += `<div class="numero">${formatarNumero(num)}</div>`;
-        });
-        
-        html += `
-            </div>
-        </div>
-        <div class="sorteio">
-            <h4>🎲 2º Sorteio</h4>
-            <div class="numeros">`;
-        
-        jogos.segundo[i].forEach(num => {
-            html += `<div class="numero">${formatarNumero(num)}</div>`;
-        });
-        
-        html += `
-            </div>
-        </div>
-    </div>`;
-            }
-
-            html += `
-    <div class="info">
-        <p>Total de jogos: ${jogos.primeiro.length}</p>
-        <p>Gerado pela aplicação Resultados Dupla Sena</p>
-    </div>
-</body>
-</html>`;
-            
-            return html;
-        }
-
-        // Função para gerar conteúdo CSV (Dupla Sena)
-        function gerarCSVDupla(jogos) {
-            let csv = 'Jogo,1S_Bola1,1S_Bola2,1S_Bola3,1S_Bola4,1S_Bola5,1S_Bola6,2S_Bola1,2S_Bola2,2S_Bola3,2S_Bola4,2S_Bola5,2S_Bola6\n';
-            for (let i = 0; i < jogos.primeiro.length; i++) {
-                const jogo1 = jogos.primeiro[i].map(num => formatarNumero(num)).join(',');
-                const jogo2 = jogos.segundo[i].map(num => formatarNumero(num)).join(',');
-                csv += `${i + 1},${jogo1},${jogo2}\n`;
-            }
-            return csv;
-        }
-
-        // Função principal para baixar palpites (Dupla Sena)
-        function baixarPalpitesDupla(jogos, formato, estrategia) {
-            let conteudo, nomeArquivo, tipoMime;
-            
-            const timestamp = new Date().toISOString().slice(0,10);
-            const estrategiaTexto = estrategia === 1 ? 'simples' : (estrategia === 2 ? 'progressiva' : 'livre');
-            
-            switch(formato) {
-                case 'txt':
-                    conteudo = gerarTXTDupla(jogos);
-                    nomeArquivo = `palpites-dupla-sena-${estrategiaTexto}-${timestamp}.txt`;
-                    tipoMime = 'text/plain';
-                    break;
-                
-                case 'html':
-                    conteudo = gerarHTMLDupla(jogos, estrategia);
-                    nomeArquivo = `palpites-dupla-sena-${estrategiaTexto}-${timestamp}.html`;
-                    tipoMime = 'text/html';
-                    break;
-                
-                case 'xlsx':
-                    conteudo = gerarCSVDupla(jogos);
-                    nomeArquivo = `palpites-dupla-sena-${estrategiaTexto}-${timestamp}.csv`;
-                    tipoMime = 'text/csv';
-                    break;
-                
-                default:
-                    mostrarModal('Erro', 'Formato não suportado');
-                    return;
-            }
-            
-            // Criar e baixar arquivo
-            const blob = new Blob([conteudo], { type: tipoMime });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = nomeArquivo;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }
+        // Event Listeners para o Gerador de Jogos por Posição
+        document.getElementById('gerarJogoPosicao').addEventListener('click', gerarJogoPorPosicao);
+        document.getElementById('limparSelecoesPosicao').addEventListener('click', limparSelecoesPosicao);
+        document.getElementById('adicionarJogoAoHistoricoPosicao').addEventListener('click', adicionarJogoAoHistoricoPosicao);
 
         // Validação do input quantidade de jogos estratégia 1
         document.getElementById('quantidadeJogos1').addEventListener('input', function () {
@@ -2651,10 +3119,14 @@
 
             if (isNaN(val) || val < 1) {
                 this.value = 1;
-            } else if (val > 3) {
-                this.value = 3;
+            } else if (val > 7) {
+                this.value = 7;
             }
         });
+
+        // Inicializar botões
+        atualizarBotoesSorteio();
+        atualizarBotoesAnaliseVisual();
 
         // 🚀 CARREGAR TODOS OS CONCURSOS AUTOMATICAMENTE AO ABRIR A APP
         document.addEventListener('DOMContentLoaded', async () => {
